@@ -1,8 +1,7 @@
-
-import React, { useState } from 'react';
+import SearchBar from "../../components/SearchBar";
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import { useRoute } from '@react-navigation/native';
-import SearchBar from "../../components/SearchBar";
 
 const items = [
   { id: '1', code: 'C-101' },
@@ -15,12 +14,12 @@ export default function SearchScreen() {
   const [searchText, setSearchText] = useState('');
   const [filteredItems, setFilteredItems] = useState(items);
 
-  const handleSearch = () => {
+  useEffect(() => {
     const filtered = items.filter(item => 
       item.code.toLowerCase().includes(searchText.toLowerCase())
     );
     setFilteredItems(filtered);
-  };
+  }, [searchText]);
 
   return (
     <View style={styles.container}>
@@ -28,7 +27,7 @@ export default function SearchScreen() {
       <SearchBar
         searchText={searchText}
         setSearchText={setSearchText}
-        onSubmit={handleSearch}
+        onSubmit={() => {}}
       />
       <FlatList
         data={filteredItems}
