@@ -5,7 +5,7 @@ export default function C201Screen() {
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContainer}>
       <View style={styles.container}>
-        <Text style={styles.title}>C-106</Text>
+        <Text style={styles.title}>C-201</Text>
         <Image source={require('../../assets/images/1-201.png')} style={styles.image} />
         <Image source={require('../../assets/images/2-201.png')} style={styles.image} />
       </View>
