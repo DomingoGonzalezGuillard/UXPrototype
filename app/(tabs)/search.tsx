@@ -1,29 +1,45 @@
 import SearchBar from "../../components/SearchBar";
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
-import { useRoute } from '@react-navigation/native';
+import React, { useState, useEffect } from "react";
+import { View, Text, StyleSheet, FlatList } from "react-native";
+import { useGlobalSearchParams } from "expo-router";
+import Fuse from "fuse.js";
 
 const items = [
-  { id: '1', code: 'C-101' },
-  { id: '2', code: 'C-202' },
-  { id: '3', code: 'C-201' }
+  { id: "1", code: "C-101" },
+  { id: "2", code: "C-202" },
+  { id: "3", code: "C-201" },
 ];
 
 export default function SearchScreen() {
-  const route = useRoute();
-  const [searchText, setSearchText] = useState('');
+  const { query } = useGlobalSearchParams<{ query: string }>();
+
+  const [searchText, setSearchText] = useState(query ?? "");
   const [filteredItems, setFilteredItems] = useState(items);
 
+  const options = {
+    keys: ["code"],
+    includeScore: true,
+  };
+
+  const fuse = new Fuse(items, options);
+
   useEffect(() => {
-    const filtered = items.filter(item => 
-      item.code.toLowerCase().includes(searchText.toLowerCase())
-    );
-    setFilteredItems(filtered);
+    if (searchText.trim() === "") {
+      setFilteredItems(items);
+    } else {
+      const result = fuse.search(searchText);
+      setFilteredItems(result.map(({ item }) => item));
+    }
   }, [searchText]);
+
+  useEffect(() => {
+    if (query !== undefined) {
+      setSearchText(query);
+    }
+  }, [query]);
 
   return (
     <View style={styles.container}>
-      <Text>Button Name: {"buttonName"}</Text>
       <SearchBar
         searchText={searchText}
         setSearchText={setSearchText}
@@ -47,6 +63,6 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 18,
     borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    borderBottomColor: "#ccc",
   },
 });
