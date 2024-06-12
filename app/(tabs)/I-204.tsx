@@ -7,6 +7,7 @@ export default function C204Screen() {
     require('../../assets/images/I-204_2_D.png')
   ]);
   const [toggle, setToggle] = useState(false);
+  const [buttonText, setButtonText] = useState('Camino alternativo');
 
   const toggleImages = () => {
     if (toggle) {
@@ -14,11 +15,13 @@ export default function C204Screen() {
         require('../../assets/images/I-204_1_D.png'),
         require('../../assets/images/I-204_2_D.png')
       ]);
+      setButtonText('Camino alternativo');
     } else {
       setImages([
         require('../../assets/images/I-204_1_E.png'),
         require('../../assets/images/I-204_2_E.png')
       ]);
+      setButtonText('');
     }
     setToggle(!toggle);
   };
@@ -28,6 +31,7 @@ export default function C204Screen() {
       <View style={styles.container}>
         <Text style={styles.title}>I-204</Text>
         <TouchableOpacity onPress={toggleImages} style={[styles.button, toggle ? styles.buttonActive : null]}>
+          <Text style={styles.buttonText}>{buttonText}</Text>
           <Image source={require('../../assets/images/discapacidad.png')} style={styles.buttonImage} />
         </TouchableOpacity>
         <Image source={images[0]} style={styles.image} />
@@ -59,13 +63,19 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   button: {
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: 'blue',
     padding: 10,
     borderRadius: 5,
-    marginTop: 30, // Ajuste la distancia al componente de imagen
+    marginTop: 30,
+  },
+  buttonText: {
+    color: 'white', // Texto blanco
+    marginRight: 10, // Espacio entre el texto y la imagen
   },
   buttonActive: {
-    opacity: 0.5, // Cambia la opacidad cuando está activo
+    opacity: 0.5,
   },
   buttonImage: {
     width: 30,
