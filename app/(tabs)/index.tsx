@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   buttonRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 20,
+    marginBottom: 0,
   },
   buttonWrapper: {
     flex: 1,
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
   },
   languageContainer: {
-    marginTop: 20,
+    marginTop: 0,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
