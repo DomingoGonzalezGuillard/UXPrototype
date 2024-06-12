@@ -35,7 +35,6 @@ const items = [
   { id: "24", code: "B-301", route: '/B-301' },
   { id: "25", code: "B-302", route: '/B-302' },
 ];
-
 export default function SearchScreen() {
   const { query } = useGlobalSearchParams<{ query: string }>();
 
@@ -66,7 +65,7 @@ export default function SearchScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.instructionText}>Introduce nombre de sala 🚪</Text> {/* Este es el texto agregado */}
+      <Text style={styles.instructionText}>Introduce nombre de sala 🚪</Text>
       <View>
         <SearchBar
           searchText={searchText}
@@ -75,13 +74,13 @@ export default function SearchScreen() {
         />
       </View>
 
-      <View style={styles.centeredView} >
+      <View style={styles.centeredView}>
         <FlatList
           data={filteredItems}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <Link href={item.route ?? '/default'} style={styles.link}>
-                <Text style={styles.title}>{item.code}</Text>
+              <Text style={styles.title}>{item.code}</Text>
             </Link>
           )}
         />
@@ -89,6 +88,7 @@ export default function SearchScreen() {
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -104,12 +104,10 @@ const styles = StyleSheet.create({
   link: {
     width: '100%',
     marginVertical: 10,
-    
   },
   title: {
     fontSize: 18,
   },
-
   centeredView: {
     flex: 1,
     justifyContent: 'center',
@@ -120,5 +118,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
+    marginTop: 20, // Add marginTop to lower the text
+    textAlign: 'center', // Center the text horizontally
   },
 });

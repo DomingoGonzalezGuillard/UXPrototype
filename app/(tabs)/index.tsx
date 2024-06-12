@@ -39,50 +39,57 @@ export default function HomeScreen() {
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
               <Link href="/search?query=h" asChild>
-                <Button title="🏠" />
+                <Button title="  📜  " color="#E91E63" />
               </Link>
-              <Text >Humanidades</Text>
+              <Text>Humanidades</Text>
             </View>
             <View style={styles.buttonWrapper}>
               <Link href="/search?query=c" asChild>
-                <Button title="Ciencias" />
+                <Button title="   🔬   " color="#4CAF50" />
               </Link>
+              <Text>Ciencias</Text>
             </View>
           </View>
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
               <Link href="/search?query=b" asChild>
-                <Button title="Biblioteca" />
+                <Button title="   🏫   " color="#FFEB3B" />
               </Link>
+              <Text>Biblioteca</Text>
             </View>
             <View style={styles.buttonWrapper}>
               <Link href="/search?query=i" asChild>
-                <Button title="Ingenieria" />
+                <Button title="   🔧   " color="#FF9800" />
               </Link>
+              <Text>Ingeniería</Text>
             </View>
           </View>
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
               <Link href="/search?query=r" asChild>
-                <Button title="Reloj" />
+                <Button title="   🕚   " color="#3F51B5" />
               </Link>
+              <Text>Reloj</Text>
             </View>
             <View style={styles.buttonWrapper}>
               <Link href="/search?query=m" asChild>
-                <Button title="Mecano" />
+                <Button title="   ⚙️   " color="#9C27B0" />
               </Link>
+              <Text>Mecano</Text>
             </View>
           </View>
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
               <Link href="/search?query=e" asChild>
-                <Button title="ESE" />
-              </Link>
+                <Button title="   🏢   " color="#FF5733" />
+              </Link> 
+              <Text>ESE</Text>
             </View>
             <View style={styles.buttonWrapper}>
               <Link href="/search?query=ce" asChild>
-                <Button title="Central" />
+                <Button title="   🏛️   " color="#795548" />
               </Link>
+              <Text>Central</Text>
             </View>
           </View>
         </View>
@@ -142,11 +149,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 10,
   },
-  buttonWrapper: {
-    flex: 1,
-    marginHorizontal: 5,
-    aspectRatio: 1,
-  },
   languageContainer: {
     marginTop: 20,
     flexDirection: 'row',
@@ -162,5 +164,14 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
   },
-  
+  buttonWrapper: {
+    flex: 1,
+    marginHorizontal: 5,
+    aspectRatio: 1,
+    alignItems: 'center', // Center the text under the button
+  },
+  buttonText: {
+    textAlign: 'center', // Center the text horizontally
+    marginTop: 5, // Optional: Add some space between the button and the text
+  },
 });
