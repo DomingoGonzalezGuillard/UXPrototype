@@ -54,6 +54,9 @@ export default function HomeScreen() {
             </Link>
           </View>
         </View>
+      </View>
+
+      <View style={styles.languageContainer}>
         <Image source={require('@/assets/images/idioma.png')} style={styles.languageIcon} />
         <Picker
           selectedValue={language}
@@ -62,9 +65,6 @@ export default function HomeScreen() {
           <Picker.Item label="Español" value="Español" />
           <Picker.Item label="English" value="English" />
         </Picker>
-      </View>
-
-      <View style={styles.languageContainer}>
       </View>
     </ParallaxScrollView>
   );
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
   },
   languageContainer: {
-    marginTop: 10, // Ajusta este valor según lo necesario para posicionar el picker más arriba
+    marginTop: 20,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
