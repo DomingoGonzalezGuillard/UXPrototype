@@ -39,8 +39,9 @@ export default function HomeScreen() {
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
               <Link href="/search?query=h" asChild>
-                <Button title="Humanidades" />
+                <Button title="🏠" />
               </Link>
+              <Text >Humanidades</Text>
             </View>
             <View style={styles.buttonWrapper}>
               <Link href="/search?query=c" asChild>
@@ -161,4 +162,5 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
   },
+  
 });
