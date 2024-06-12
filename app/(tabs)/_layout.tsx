@@ -64,6 +64,17 @@ export default function TabLayout() {
         tabBarButton: () => null, // Hide the tab from the tab bar
       }}
     />
+
+<Tabs.Screen
+      name="I-204"
+      options={{
+        title: 'I-204',
+        tabBarIcon: ({ color, focused }) => (
+          <TabBarIcon name={focused ? 'camera' : 'camera-outline'} color={color} />
+        ),
+        tabBarButton: () => null, // Hide the tab from the tab bar
+      }}
+    />
     </Tabs>
   );
 }
