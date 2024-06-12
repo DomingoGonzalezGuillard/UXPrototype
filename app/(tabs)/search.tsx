@@ -66,6 +66,7 @@ export default function SearchScreen() {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.instructionText}>Introduce nombre de sala 🚪</Text> {/* Este es el texto agregado */}
       <View>
         <SearchBar
           searchText={searchText}
@@ -73,6 +74,7 @@ export default function SearchScreen() {
           onSubmit={() => {}}
         />
       </View>
+
       <View style={styles.centeredView} >
         <FlatList
           data={filteredItems}
@@ -113,5 +115,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
+  },
+  instructionText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
 });

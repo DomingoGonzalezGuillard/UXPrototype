@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Button } from 'react-native';
+import { Link } from 'expo-router';
 
 export default function C204Screen() {
   const [images, setImages] = useState([
@@ -28,6 +29,11 @@ export default function C204Screen() {
 
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContainer}>
+      <View style={styles.backButtonContainer}>
+        <Link href="/search" asChild>
+          <Button title="Back" />
+        </Link>
+      </View>
       <View style={styles.container}>
         <Text style={styles.title}>I-204</Text>
         <TouchableOpacity onPress={toggleImages} style={[styles.button, toggle ? styles.buttonActive : null]}>
@@ -76,6 +82,11 @@ const styles = StyleSheet.create({
   },
   buttonActive: {
     opacity: 0.5,
+  },
+  backButtonContainer: {
+    position: 'absolute',
+    top: 40, // Ajusta este valor según sea necesario
+    left: 20, // Ajusta este valor según sea necesario
   },
   buttonImage: {
     width: 30,
