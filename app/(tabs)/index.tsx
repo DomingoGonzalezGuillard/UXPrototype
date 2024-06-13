@@ -90,7 +90,7 @@ export default function HomeScreen() {
               <TouchableOpacity style={[styles.button, { backgroundColor: '#9C27B0' }]}>
                 <Link href="/search?query=m" asChild>
 
-                 <Text style={styles.buttonEmoji}>⚙️</Text>
+                 <Text style={styles.buttonEmoji}>✏️</Text>
                 </Link>
 
                 <Text style={styles.buttonText}>Mecano</Text>
@@ -123,11 +123,11 @@ export default function HomeScreen() {
 
         <View style={styles.sectionContainer}>
           <TouchableOpacity style={[styles.smallButton, { backgroundColor: '#E7D37F' }]}>
-          <Text style={styles.buttonEmoji}>🗺️</Text>
-
           <Link href="/campus" asChild>
-            <Text style={styles.smallButtonText}>Mapa de Campus</Text>
+          <Text style={styles.buttonEmoji}>🗺️</Text>
           </Link>
+
+            <Text style={styles.smallButtonText}>Mapa de Campus</Text>
           
           </TouchableOpacity>
         </View>
