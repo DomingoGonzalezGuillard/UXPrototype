@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, StyleSheet, View, Button, Text } from 'react-native';
+import { Image, StyleSheet, View, Button, Text, TouchableOpacity } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 
 import { HelloWave } from '@/components/HelloWave';
@@ -29,7 +29,7 @@ export default function HomeScreen() {
         <ThemedText type="title">Bienvenido!</ThemedText>
         <HelloWave />
       </ThemedView>
-
+  
       <View style={styles.sectionContainer}>
         <View style={styles.sectionTitleContainer}>
           <Text style={styles.sectionTitle}>Buscar por edificio</Text>
@@ -38,62 +38,100 @@ export default function HomeScreen() {
         <View style={styles.buttonContainer}>
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
-              <Link href="/search?query=h" asChild>
-                <Button title="  📜  " color="#E91E63" />
-              </Link>
-              <Text>Humanidades</Text>
+              <TouchableOpacity style={[styles.button, { backgroundColor: '#E91E63' }]}>
+
+                <Link href="/search?query=h" asChild>
+                  <Text style={styles.buttonEmoji}>📜</Text>
+                </Link>
+                  <Text style={styles.buttonText}>Humanidades</Text>
+              </TouchableOpacity>
+
             </View>
             <View style={styles.buttonWrapper}>
-              <Link href="/search?query=c" asChild>
-                <Button title="   🔬   " color="#4CAF50" />
-              </Link>
-              <Text>Ciencias</Text>
-            </View>
-          </View>
-          <View style={styles.buttonRow}>
-            <View style={styles.buttonWrapper}>
-              <Link href="/search?query=b" asChild>
-                <Button title="   🏫   " color="#FFEB3B" />
-              </Link>
-              <Text>Biblioteca</Text>
-            </View>
-            <View style={styles.buttonWrapper}>
-              <Link href="/search?query=i" asChild>
-                <Button title="   🔧   " color="#FF9800" />
-              </Link>
-              <Text>Ingeniería</Text>
+              <TouchableOpacity style={[styles.button, { backgroundColor: '#4CAF50' }]}>
+                <Link href="/search?query=c" asChild>
+                <Text style={styles.buttonEmoji}>🔬</Text>
+                </Link>
+                <Text style={styles.buttonText}>Ciencias</Text>
+
+              </TouchableOpacity>
             </View>
           </View>
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
-              <Link href="/search?query=r" asChild>
-                <Button title="   🕚   " color="#3F51B5" />
-              </Link>
-              <Text>Reloj</Text>
+              <TouchableOpacity style={[styles.button, { backgroundColor: '#FFEB3B' }]}>
+                <Link href="/search?query=b" asChild>
+                  <Text style={styles.buttonEmoji}>🏫</Text>
+                </Link>
+                <Text style={styles.buttonText}>Biblioteca</Text>
+              </TouchableOpacity>
             </View>
             <View style={styles.buttonWrapper}>
-              <Link href="/search?query=m" asChild>
-                <Button title="   ⚙️   " color="#9C27B0" />
-              </Link>
-              <Text>Mecano</Text>
+              <TouchableOpacity style={[styles.button, { backgroundColor: '#FF9800' }]}>
+                <Link href="/search?query=i" asChild>
+                  <Text style={styles.buttonEmoji}>🔧</Text>
+                </Link>
+                <Text style={styles.buttonText}>Ingeniería</Text>
+
+              </TouchableOpacity>
             </View>
           </View>
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
+              <TouchableOpacity style={[styles.button, { backgroundColor: '#3F51B5' }]}>
+               <Link href="/search?query=r" asChild>
+                  <Text style={styles.buttonEmoji}>🕚</Text>
+                </Link>
+                <Text style={styles.buttonText}>Reloj</Text>
+
+              </TouchableOpacity>
+            </View>
+            <View style={styles.buttonWrapper}>
+              <TouchableOpacity style={[styles.button, { backgroundColor: '#9C27B0' }]}>
+                <Link href="/search?query=m" asChild>
+
+                 <Text style={styles.buttonEmoji}>⚙️</Text>
+                </Link>
+
+                <Text style={styles.buttonText}>Mecano</Text>
+
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View style={styles.buttonRow}>
+            <View style={styles.buttonWrapper}>
+              <TouchableOpacity style={[styles.button, { backgroundColor: '#FF5733' }]}>
               <Link href="/search?query=e" asChild>
-                <Button title="   🏢   " color="#FF5733" />
-              </Link> 
-              <Text>ESE</Text>
+
+                <Text style={styles.buttonEmoji}>🏢</Text>
+                </Link>
+                <Text style={styles.buttonText}>ESE</Text>
+
+              </TouchableOpacity>
             </View>
             <View style={styles.buttonWrapper}>
-              <Link href="/search?query=ce" asChild>
-                <Button title="   🏛️   " color="#795548" />
-              </Link>
-              <Text>Central</Text>
+              <TouchableOpacity style={[styles.button, { backgroundColor: '#795548' }]}>
+                <Link href="/search?query=ce" asChild>
+                   <Text style={styles.buttonEmoji}>🏛️</Text>
+                 </Link>
+                <Text style={styles.buttonText}>Central</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
       </View>
+
+        <View style={styles.sectionContainer}>
+          <TouchableOpacity style={[styles.smallButton, { backgroundColor: '#E7D37F' }]}>
+          <Text style={styles.buttonEmoji}>🗺️</Text>
+
+          <Link href="/campus" asChild>
+            <Text style={styles.smallButtonText}>Mapa de Campus</Text>
+          </Link>
+          
+          </TouchableOpacity>
+        </View>
+
 
       <View style={styles.languageContainer}>
         <Image source={require('@/assets/images/idioma.png')} style={styles.languageIcon} />
@@ -124,6 +162,21 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
   },
+  smallButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    marginTop: 5,
+  },
+  smallButtonText: {
+    fontWeight: 'bold',
+    fontSize: 12,
+    color: '#000000', // White color
+  },
+  
+  
   sectionContainer: {
     backgroundColor: '#f0f0f0',
     padding: 20,
@@ -169,9 +222,29 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     aspectRatio: 1,
     alignItems: 'center', // Center the text under the button
+  
+  },
+  buttonEmoji: {
+    fontSize: 35, // Ajusta este valor para cambiar el tamaño del emoji
   },
   buttonText: {
     textAlign: 'center', // Center the text horizontally
     marginTop: 5, // Optional: Add some space between the button and the text
+    fontWeight: 'bold',
+
+  
   },
+
+
+  button: {
+    flex: 1,
+    marginHorizontal: 5,
+    aspectRatio: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20, // Ajusta este valor para hacer los bordes más redondeados
+  },
+
+
+
 });

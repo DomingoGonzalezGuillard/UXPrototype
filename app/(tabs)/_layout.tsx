@@ -31,6 +31,7 @@ export default function TabLayout() {
             tabBarIcon: ({ color, focused }) => (
               <TabBarIcon name={focused ? 'search' : 'search-outline'} color={color} />
             ),
+            
           }}
         />
         
@@ -41,6 +42,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'camera' : 'camera-outline'} color={color} />
           ),
+          
         }}
       />
     <Tabs.Screen
@@ -53,7 +55,16 @@ export default function TabLayout() {
         tabBarButton: () => null, // Hide the tab from the tab bar
       }}
     />
-
+    <Tabs.Screen
+      name="campus"
+      options={{
+        title: 'Campus',
+        tabBarIcon: ({ color, focused }) => (
+          <TabBarIcon name={focused ? 'camera' : 'camera-outline'} color={color} />
+        ),
+        tabBarButton: () => null, // Hide the tab from the tab bar
+      }}
+    />
 <Tabs.Screen
       name="C-201"
       options={{
