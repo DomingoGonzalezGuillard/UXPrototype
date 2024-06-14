@@ -119,11 +119,9 @@ export default function HomeScreen() {
                 <Link href="/search?query=m" asChild>
                   <View style={styles.buttonWrapper}>
                     <Text style={styles.buttonEmoji}>🔧</Text>
-                    <Text style={styles.buttonText}>Mecánica</Text>
+                    <Text style={styles.buttonText}>Mecano</Text>
                   </View>
                 </Link>
-
-                <Text style={styles.buttonText}>Mecano</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -222,13 +220,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 12,
     color: "#000000", // White color
+    lineHeight: 8,
   },
 
   sectionContainer: {
     backgroundColor: "#f0f0f0",
-    padding: 20,
+    padding: 10,
     borderRadius: 10,
-    marginHorizontal: 20,
+    marginHorizontal: 1 - 0,
     marginTop: 20,
   },
   sectionTitleContainer: {
@@ -270,6 +269,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     aspectRatio: 1,
     alignItems: "center", // Center the text under the button
+    justifyContent: "center",
   },
   buttonEmoji: {
     fontSize: 35, // Ajusta este valor para cambiar el tamaño del emoji
