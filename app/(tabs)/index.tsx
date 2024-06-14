@@ -11,6 +11,7 @@ import { BuildingEmoji } from '@/components/BuildingEmoji'; // Asegúrate de imp
 
 export default function HomeScreen() {
   const [language, setLanguage] = useState('Español'); // Estado para controlar el idioma
+  const [accesibility, setAccesibility] = useState(false);
 
   const toggleLanguage = (selectedLanguage) => {
     setLanguage(selectedLanguage); // Cambia el idioma
@@ -143,6 +144,14 @@ export default function HomeScreen() {
           <Picker.Item label="English" value="English" />
         </Picker>
       </View>
+
+      <View style={styles.languageContainer}>
+        <Switch
+          value={accesibility}
+          onValueChange={(value) => setAccesibility(value)}
+        />
+        <Text>Accesibilidad</Text>
+      </View>
     </ParallaxScrollView>
   );
 }
@@ -207,6 +216,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    gap: 10,
   },
   languagePicker: {
     width: 150,
