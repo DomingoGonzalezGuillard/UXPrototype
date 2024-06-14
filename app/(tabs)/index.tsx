@@ -20,14 +20,13 @@ import { BuildingEmoji } from "@/components/BuildingEmoji"; // Asegúrate de imp
 export default function HomeScreen() {
   // how to set the language options
   const [language, setLanguage] = useState("Español");
-  const [accesibility, setAccesibility] = useState(false);
 
   const toggleLanguage = (selectedLanguage: string) => {
     setLanguage(selectedLanguage); // Cambia el idioma
   };
 
   return (
-    <ParallaxScrollView
+    <ParallaxScrollView 
       headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
       headerImage={
         <Image
@@ -160,8 +159,8 @@ export default function HomeScreen() {
         >
           <Link href="/campus" asChild>
             <View style={styles.buttonWrapper}>
-              -<Text style={styles.buttonEmoji}>🗺️</Text>
-              <Text style={styles.smallButtonText}>Mapa de Campus</Text>
+              <Text style={styles.buttonEmoji}>🗺️</Text>
+              <Text style={styles.buttonText}>Mapa de Campus</Text>
             </View>
           </Link>
         </TouchableOpacity>
@@ -182,13 +181,7 @@ export default function HomeScreen() {
         </Picker>
       </View>
 
-      <View style={styles.languageContainer}>
-        <Switch
-          value={accesibility}
-          onValueChange={(value) => setAccesibility(value)}
-        />
-        <Text>Accesibilidad</Text>
-      </View>
+
     </ParallaxScrollView>
   );
 }
@@ -218,11 +211,14 @@ const styles = StyleSheet.create({
   },
   smallButtonText: {
     fontWeight: "bold",
-    fontSize: 12,
+    fontSize: 18,
     color: "#000000", // White color
     lineHeight: 8,
+    backgroundColor: "white",
+    padding: 10,
+    borderRadius: 10,
   },
-
+  //f0f0f0
   sectionContainer: {
     backgroundColor: "#f0f0f0",
     padding: 10,
@@ -276,9 +272,14 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     textAlign: "center", // Center the text horizontally
-    marginTop: 5, // Optional: Add some space between the button and the text
+    marginTop: 30, // Optional: Add some space between the button and the text
     fontWeight: "bold",
+    fontSize: 18,
+    backgroundColor: "white",
+    padding: 5,
+    borderRadius: 10,
   },
+
 
   button: {
     flex: 1,
