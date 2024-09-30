@@ -16,8 +16,8 @@ export default function C101Screen() {
           </View>
         </Link>
       </View>
-      <Text style={styles.title}>C-106</Text>
-      <Image source={require('../../assets/images/106.png')} style={styles.image} />
+      <Text style={styles.title}>C-105</Text>
+      <Image source={require('../../assets/images/c-105gif.gif')} style={styles.image} />
     </View>
   );
 }

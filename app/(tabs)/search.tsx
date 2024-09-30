@@ -8,7 +8,7 @@ import Icon from "react-native-vector-icons/FontAwesome"; // Importamos el ícon
 const items = [
   { id: "1", code: "C-101", route: '/C-101', piso: '1', sala: '101', edificio: 'Ciencias' },
   { id: "2", code: "C-102", route: '/C-102', piso: '1', sala: '102', edificio: 'Ciencias' },
-  { id: "28", code: "C-106", route: '/C-106', piso: '1', sala: '106', edificio: 'Ciencias' },
+  { id: "28", code: "C-105", route: '/C-106', piso: '1', sala: '105', edificio: 'Ciencias' },
   { id: "3", code: "C-201", route: '/C-201', piso: '2', sala: '201', edificio: 'Ciencias' },
   { id: "4", code: "C-202", route: '/C-202', piso: '2', sala: '202', edificio: 'Ciencias' },
   { id: "5", code: "H-101", route: '/H-101', piso: '1', sala: '101', edificio: 'Humanidades' },
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   infoContainer: {
-    backgroundColor: '#d3cbc9',
+    backgroundColor: '#f4f4f4',
     padding: 15,
     alignItems: 'flex-start',
     borderBottomLeftRadius: 10,

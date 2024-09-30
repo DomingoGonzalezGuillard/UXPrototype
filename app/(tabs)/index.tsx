@@ -16,7 +16,6 @@ import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Link } from "expo-router";
-import { BuildingEmoji } from "@/components/BuildingEmoji"; // Asegúrate de importar el componente del emoji
 
 export default function HomeScreen() {
   // how to set the language options
@@ -45,7 +44,7 @@ export default function HomeScreen() {
       <View style={styles.sectionContainer}>
         <View style={styles.sectionTitleContainer}>
           
-          <Icon name="chevron-right" size={20} color="#CE0615" style={styles.icon} /> {/* Icono agregado */}
+          <Icon name="chevron-right" size={20} color="#CE0615" style={styles.icon} /> 
 
           <Text style={styles.sectionTitle}>Buscar por edificio</Text>
           
@@ -54,11 +53,11 @@ export default function HomeScreen() {
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
               <TouchableOpacity
-                style={[styles.button, { backgroundColor: "#d3cbc9" }]}
+              style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
                 <Link href="/search?query=h" asChild>
                   <View style={styles.buttonWrapper}>
-                  <Icon name="book" size={40} color="#CE0615" style={styles.icon} /> {/* Icono agregado */}
+                  <Icon name="book" size={40} color="#CE0615" style={styles.icon} /> 
 
                     <Text style={styles.buttonText}>Humanidades</Text>
                   </View>
@@ -66,12 +65,12 @@ export default function HomeScreen() {
               </TouchableOpacity>
             </View>
             <View style={styles.buttonWrapper}>
-              <TouchableOpacity
-                style={[styles.button, { backgroundColor: "#d3cbc9" }]}
+            <TouchableOpacity
+              style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
                 <Link href="/search?query=c" asChild>
                   <View style={styles.buttonWrapper}>
-                  <Icon name="flask" size={40} color="#CE0615" style={styles.icon} /> {/* Icono agregado */}
+                  <Icon name="flask" size={40} color="#CE0615" style={styles.icon} /> 
                     <Text style={styles.buttonText}>Ciencias</Text>
                   </View>
                 </Link>
@@ -80,20 +79,20 @@ export default function HomeScreen() {
           </View>
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
-              <TouchableOpacity
-                style={[styles.button, { backgroundColor: "#d3cbc9" }]}
+            <TouchableOpacity
+              style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
                 <Link href="/search?query=b" asChild>
                   <View style={styles.buttonWrapper}>
-                  <Icon name="place-of-worship" size={40} color="#CE0615" style={styles.icon} /> {/* Icono agregado */}
+                  <Icon name="place-of-worship" size={40} color="#CE0615" style={styles.icon} /> 
                     <Text style={styles.buttonText}>Biblioteca</Text>
                   </View>
                 </Link>
               </TouchableOpacity>
             </View>
             <View style={styles.buttonWrapper}>
-              <TouchableOpacity
-                style={[styles.button, { backgroundColor: "#d3cbc9" }]}
+            <TouchableOpacity
+              style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
                 <Link href="/search?query=i" asChild>
                   <View style={styles.buttonWrapper}>
@@ -107,8 +106,8 @@ export default function HomeScreen() {
           </View>
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
-              <TouchableOpacity
-                style={[styles.button, { backgroundColor: "#d3cbc9" }]}
+            <TouchableOpacity
+              style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
                 <Link href="/search?query=r" asChild>
                   <View style={styles.buttonWrapper}>
@@ -119,8 +118,8 @@ export default function HomeScreen() {
               </TouchableOpacity>
             </View>
             <View style={styles.buttonWrapper}>
-              <TouchableOpacity
-                style={[styles.button, { backgroundColor: "#d3cbc9" }]}
+            <TouchableOpacity
+              style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
                 <Link href="/search?query=m" asChild>
                   <View style={styles.buttonWrapper}>
@@ -133,8 +132,8 @@ export default function HomeScreen() {
           </View>
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
-              <TouchableOpacity
-                style={[styles.button, { backgroundColor: "#d3cbc9" }]}
+            <TouchableOpacity
+              style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
                 <Link href="/search?query=e" asChild>
                   <View style={styles.buttonWrapper}>
@@ -144,8 +143,8 @@ export default function HomeScreen() {
               </TouchableOpacity>
             </View>
             <View style={styles.buttonWrapper}>
-              <TouchableOpacity
-                style={[styles.button, { backgroundColor: "#d3cbc9" }]}
+            <TouchableOpacity
+              style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
                 <Link href="/search?query=ce" asChild>
                   <View style={styles.buttonWrapper}>
@@ -159,9 +158,9 @@ export default function HomeScreen() {
       </View>
 
       <View style={styles.sectionContainer}>
-        <TouchableOpacity
-          style={[styles.smallButton, { backgroundColor: "#d3cbc9" }]}
-        >
+      <TouchableOpacity
+              style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
+              >
           <Link href="/campus" asChild>
             <View style={styles.buttonWrapper}>
             <Icon name="map" size={40} color="#CE0615" style={styles.icon} />               <Text style={styles.buttonText}>Mapa de Campus</Text>
@@ -225,7 +224,7 @@ const styles = StyleSheet.create({
   },
   //f0f0f0
   sectionContainer: {
-    backgroundColor: "#f0f0f0",
+    backgroundColor: "#ffffff",
     padding: 10,
     borderRadius: 10,
     marginHorizontal: 1 - 0,
