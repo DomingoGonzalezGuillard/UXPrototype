@@ -163,7 +163,8 @@ export default function HomeScreen() {
               >
           <Link href="/campus" asChild>
             <View style={styles.buttonWrapper}>
-            <Icon name="map" size={40} color="#CE0615" style={styles.icon} />               <Text style={styles.buttonText}>Mapa de Campus</Text>
+            <Icon name="map" size={40} color="#CE0615" style={styles.icon} />               
+            <Text style={styles.buttonText}>Mapa de Campus</Text>
             </View>
           </Link>
         </TouchableOpacity>
@@ -237,7 +238,6 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: "bold",
     marginRight: 10,
   },
   buttonContainer: {
@@ -277,9 +277,8 @@ const styles = StyleSheet.create({
   buttonText: {
     textAlign: "center", // Center the text horizontally
     marginTop: 30, // Optional: Add some space between the button and the text
-    fontWeight: "bold",
     fontSize: 18,
-    backgroundColor: "white",
+    backgroundColor: "f4f4f4",
     padding: 5,
     borderRadius: 10,
   },
