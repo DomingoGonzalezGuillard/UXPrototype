@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, ReactNode } from "react";
 import {
   Image,
   StyleSheet,
@@ -10,12 +10,42 @@ import {
 } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import Icon from "react-native-vector-icons/FontAwesome5"; // Importamos el ícono de FontAwesome
+import Animated, { useSharedValue, useAnimatedStyle, withTiming, withDelay, withSpring } from "react-native-reanimated";
 
 import { HelloWave } from "@/components/HelloWave";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Link } from "expo-router";
+
+interface AnimatedButtonWrapperProps {
+  delay: number;
+  children: ReactNode;  // Add the children prop type
+}
+
+const AnimatedButtonWrapper: React.FC<AnimatedButtonWrapperProps> = ({ children, delay }) => {
+  const opacity = useSharedValue(0);
+  const translateY = useSharedValue(50);
+
+  useEffect(() => {
+    opacity.value = withDelay(delay, withTiming(1, { duration: 500 }));
+    translateY.value = withDelay(delay, withTiming(0, { duration: 500 }));
+  }, []);
+
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: opacity.value,
+      transform: [{ translateY: translateY.value }],
+    };
+  });
+
+  return (
+    <Animated.View style={[styles.buttonWrapper, animatedStyle]}>
+      {children}
+    </Animated.View>
+  );
+};
+
 
 export default function HomeScreen() {
   // how to set the language options
@@ -52,7 +82,8 @@ export default function HomeScreen() {
         <View style={styles.buttonContainer}>
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
-              <TouchableOpacity
+              <AnimatedButtonWrapper delay={0}>
+            <TouchableOpacity
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
                 <Link href="/search?query=h" asChild>
@@ -63,8 +94,10 @@ export default function HomeScreen() {
                   </View>
                 </Link>
               </TouchableOpacity>
+            </AnimatedButtonWrapper>
             </View>
             <View style={styles.buttonWrapper}>
+            <AnimatedButtonWrapper delay={0}>
             <TouchableOpacity
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
@@ -75,10 +108,12 @@ export default function HomeScreen() {
                   </View>
                 </Link>
               </TouchableOpacity>
+            </AnimatedButtonWrapper>
             </View>
           </View>
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
+            <AnimatedButtonWrapper delay={0}>
             <TouchableOpacity
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
@@ -89,8 +124,10 @@ export default function HomeScreen() {
                   </View>
                 </Link>
               </TouchableOpacity>
+              </AnimatedButtonWrapper>
             </View>
             <View style={styles.buttonWrapper}>
+            <AnimatedButtonWrapper delay={0}>
             <TouchableOpacity
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
@@ -102,10 +139,12 @@ export default function HomeScreen() {
                   </View>
                 </Link>
               </TouchableOpacity>
+            </AnimatedButtonWrapper>
             </View>
           </View>
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
+            <AnimatedButtonWrapper delay={0}>
             <TouchableOpacity
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
@@ -116,8 +155,10 @@ export default function HomeScreen() {
                   </View>
                 </Link>
               </TouchableOpacity>
+              </AnimatedButtonWrapper>
             </View>
             <View style={styles.buttonWrapper}>
+            <AnimatedButtonWrapper delay={0}>
             <TouchableOpacity
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
@@ -128,10 +169,12 @@ export default function HomeScreen() {
                   </View>
                 </Link>
               </TouchableOpacity>
+            </AnimatedButtonWrapper>
             </View>
           </View>
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
+            <AnimatedButtonWrapper delay={0}>
             <TouchableOpacity
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
@@ -141,8 +184,10 @@ export default function HomeScreen() {
                   </View>
                 </Link>
               </TouchableOpacity>
+              </AnimatedButtonWrapper>
             </View>
             <View style={styles.buttonWrapper}>
+            <AnimatedButtonWrapper delay={0}>
             <TouchableOpacity
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
@@ -152,13 +197,15 @@ export default function HomeScreen() {
                   </View>
                 </Link>
               </TouchableOpacity>
+            </AnimatedButtonWrapper>
             </View>
           </View>
         </View>
       </View>
 
       <View style={styles.sectionContainer}>
-      <TouchableOpacity
+      <AnimatedButtonWrapper delay={0}>
+            <TouchableOpacity
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
           <Link href="/campus" asChild>
@@ -168,6 +215,7 @@ export default function HomeScreen() {
             </View>
           </Link>
         </TouchableOpacity>
+        </AnimatedButtonWrapper>
       </View>
 
       <View style={styles.languageContainer}>
