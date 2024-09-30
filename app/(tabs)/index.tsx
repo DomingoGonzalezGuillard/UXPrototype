@@ -9,6 +9,7 @@ import {
   Switch,
 } from "react-native";
 import { Picker } from "@react-native-picker/picker";
+import Icon from "react-native-vector-icons/FontAwesome5"; // Importamos el ícono de FontAwesome
 
 import { HelloWave } from "@/components/HelloWave";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
@@ -27,6 +28,7 @@ export default function HomeScreen() {
 
   return (
     <ParallaxScrollView 
+
       headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
       headerImage={
         <Image
@@ -42,18 +44,22 @@ export default function HomeScreen() {
 
       <View style={styles.sectionContainer}>
         <View style={styles.sectionTitleContainer}>
+          
+          <Icon name="chevron-right" size={20} color="#CE0615" style={styles.icon} /> {/* Icono agregado */}
+
           <Text style={styles.sectionTitle}>Buscar por edificio</Text>
-          <BuildingEmoji />
+          
         </View>
         <View style={styles.buttonContainer}>
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
               <TouchableOpacity
-                style={[styles.button, { backgroundColor: "#E91E63" }]}
+                style={[styles.button, { backgroundColor: "#d3cbc9" }]}
               >
                 <Link href="/search?query=h" asChild>
                   <View style={styles.buttonWrapper}>
-                    <Text style={styles.buttonEmoji}>📜</Text>
+                  <Icon name="book" size={40} color="#CE0615" style={styles.icon} /> {/* Icono agregado */}
+
                     <Text style={styles.buttonText}>Humanidades</Text>
                   </View>
                 </Link>
@@ -61,11 +67,11 @@ export default function HomeScreen() {
             </View>
             <View style={styles.buttonWrapper}>
               <TouchableOpacity
-                style={[styles.button, { backgroundColor: "#4CAF50" }]}
+                style={[styles.button, { backgroundColor: "#d3cbc9" }]}
               >
                 <Link href="/search?query=c" asChild>
                   <View style={styles.buttonWrapper}>
-                    <Text style={styles.buttonEmoji}>🔬</Text>
+                  <Icon name="flask" size={40} color="#CE0615" style={styles.icon} /> {/* Icono agregado */}
                     <Text style={styles.buttonText}>Ciencias</Text>
                   </View>
                 </Link>
@@ -75,11 +81,11 @@ export default function HomeScreen() {
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
               <TouchableOpacity
-                style={[styles.button, { backgroundColor: "#FFEB3B" }]}
+                style={[styles.button, { backgroundColor: "#d3cbc9" }]}
               >
                 <Link href="/search?query=b" asChild>
                   <View style={styles.buttonWrapper}>
-                    <Text style={styles.buttonEmoji}>🏫</Text>
+                  <Icon name="place-of-worship" size={40} color="#CE0615" style={styles.icon} /> {/* Icono agregado */}
                     <Text style={styles.buttonText}>Biblioteca</Text>
                   </View>
                 </Link>
@@ -87,11 +93,12 @@ export default function HomeScreen() {
             </View>
             <View style={styles.buttonWrapper}>
               <TouchableOpacity
-                style={[styles.button, { backgroundColor: "#FF9800" }]}
+                style={[styles.button, { backgroundColor: "#d3cbc9" }]}
               >
                 <Link href="/search?query=i" asChild>
                   <View style={styles.buttonWrapper}>
-                    <Text style={styles.buttonEmoji}>🔧</Text>
+                  <Icon name="screwdriver" size={40} color="#CE0615" style={styles.icon} /> 
+
                     <Text style={styles.buttonText}>Ingeniería</Text>
                   </View>
                 </Link>
@@ -101,11 +108,11 @@ export default function HomeScreen() {
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
               <TouchableOpacity
-                style={[styles.button, { backgroundColor: "#3F51B5" }]}
+                style={[styles.button, { backgroundColor: "#d3cbc9" }]}
               >
                 <Link href="/search?query=r" asChild>
                   <View style={styles.buttonWrapper}>
-                    <Text style={styles.buttonEmoji}>🕚</Text>
+                  <Icon name="clock" size={40} color="#CE0615" style={styles.icon} /> 
                     <Text style={styles.buttonText}>Reloj</Text>
                   </View>
                 </Link>
@@ -113,11 +120,11 @@ export default function HomeScreen() {
             </View>
             <View style={styles.buttonWrapper}>
               <TouchableOpacity
-                style={[styles.button, { backgroundColor: "#9C27B0" }]}
+                style={[styles.button, { backgroundColor: "#d3cbc9" }]}
               >
                 <Link href="/search?query=m" asChild>
                   <View style={styles.buttonWrapper}>
-                    <Text style={styles.buttonEmoji}>🔧</Text>
+                  <Icon name="dungeon" size={40} color="#CE0615" style={styles.icon} /> 
                     <Text style={styles.buttonText}>Mecano</Text>
                   </View>
                 </Link>
@@ -127,24 +134,22 @@ export default function HomeScreen() {
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
               <TouchableOpacity
-                style={[styles.button, { backgroundColor: "#FF5733" }]}
+                style={[styles.button, { backgroundColor: "#d3cbc9" }]}
               >
                 <Link href="/search?query=e" asChild>
                   <View style={styles.buttonWrapper}>
-                    <Text style={styles.buttonEmoji}>🏢</Text>
-                    <Text style={styles.buttonText}>ESE</Text>
+                  <Icon name="school" size={40} color="#CE0615" style={styles.icon} />                     <Text style={styles.buttonText}>ESE</Text>
                   </View>
                 </Link>
               </TouchableOpacity>
             </View>
             <View style={styles.buttonWrapper}>
               <TouchableOpacity
-                style={[styles.button, { backgroundColor: "#795548" }]}
+                style={[styles.button, { backgroundColor: "#d3cbc9" }]}
               >
                 <Link href="/search?query=ce" asChild>
                   <View style={styles.buttonWrapper}>
-                    <Text style={styles.buttonEmoji}>🏛️</Text>
-                    <Text style={styles.buttonText}>Central</Text>
+                  <Icon name="landmark" size={40} color="#CE0615" style={styles.icon} />                     <Text style={styles.buttonText}>Central</Text>
                   </View>
                 </Link>
               </TouchableOpacity>
@@ -155,12 +160,11 @@ export default function HomeScreen() {
 
       <View style={styles.sectionContainer}>
         <TouchableOpacity
-          style={[styles.smallButton, { backgroundColor: "#E7D37F" }]}
+          style={[styles.smallButton, { backgroundColor: "#d3cbc9" }]}
         >
           <Link href="/campus" asChild>
             <View style={styles.buttonWrapper}>
-              <Text style={styles.buttonEmoji}>🗺️</Text>
-              <Text style={styles.buttonText}>Mapa de Campus</Text>
+            <Icon name="map" size={40} color="#CE0615" style={styles.icon} />               <Text style={styles.buttonText}>Mapa de Campus</Text>
             </View>
           </Link>
         </TouchableOpacity>
@@ -200,6 +204,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 0,
     left: 0,
+    
   },
   smallButton: {
     justifyContent: "center",
@@ -289,4 +294,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 20, // Ajusta este valor para hacer los bordes más redondeados
   },
+
+  icon: {
+    marginLeft: 10, // Separar el ícono del texto
+  },
+  listContent: {
+    flexGrow: 1,
+  },
+
 });
