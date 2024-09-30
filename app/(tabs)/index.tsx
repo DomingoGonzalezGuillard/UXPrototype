@@ -26,6 +26,7 @@ interface AnimatedButtonWrapperProps {
 const AnimatedButtonWrapper: React.FC<AnimatedButtonWrapperProps> = ({ children, delay }) => {
   const opacity = useSharedValue(0);
   const translateY = useSharedValue(50);
+  
 
   useEffect(() => {
     opacity.value = withDelay(delay, withTiming(1, { duration: 500 }));
