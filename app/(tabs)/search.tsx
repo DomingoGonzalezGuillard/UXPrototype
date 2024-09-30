@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   infoContainer: {
-    backgroundColor: '#D3D3D3',
+    backgroundColor: '#d3cbc9',
     padding: 15,
     alignItems: 'flex-start',
     borderBottomLeftRadius: 10,
