@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView, Pressable } from 'react-native';
 import { Link } from 'expo-router';
 import Icon from "react-native-vector-icons/FontAwesome5"; // Importamos el ícono de FontAwesome
 
@@ -40,10 +40,10 @@ export default function C204Screen() {
       </View>
       <View style={styles.container}>
         <Text style={styles.title}>I-204</Text>
-        <TouchableOpacity onPress={toggleImages} style={[styles.button, toggle ? styles.buttonActive : null]}>
+        <Pressable onPress={toggleImages} style={[styles.button, toggle ? styles.buttonActive : null]}>
           <Text style={styles.buttonText}>{buttonText}</Text>
           <Image source={require('../../assets/images/discapacidad.png')} style={styles.buttonImage} />
-        </TouchableOpacity>
+        </Pressable>
         <Image source={images[0]} style={styles.image} />
         <Image source={images[1]} style={styles.image} />
       </View>

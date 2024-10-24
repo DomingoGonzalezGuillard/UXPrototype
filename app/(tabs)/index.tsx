@@ -5,7 +5,7 @@ import {
   View,
   Button,
   Text,
-  TouchableOpacity,
+  Pressable,
   Switch,
 } from "react-native";
 import { Picker } from "@react-native-picker/picker";
@@ -17,6 +17,8 @@ import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Link } from "expo-router";
+
+import { speakText } from "../utils/TextToSpeech";
 
 interface AnimatedButtonWrapperProps {
   delay: number;
@@ -56,6 +58,11 @@ export default function HomeScreen() {
     setLanguage(selectedLanguage); // Cambia el idioma
   };
 
+  useEffect(() => {
+    
+  }, []);
+  
+
   return (
     <ParallaxScrollView 
 
@@ -72,6 +79,10 @@ export default function HomeScreen() {
         <HelloWave />
       </ThemedView>
 
+      <button onClick={() => speakText("Bienvenido. Buscar por edificio. Humanidades. Ciencias. Biblioteca. Ingenieria.")}>
+        Text to Speech
+      </button>
+      
       <View style={styles.sectionContainer}>
         <View style={styles.sectionTitleContainer}>
           
@@ -84,7 +95,7 @@ export default function HomeScreen() {
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
               <AnimatedButtonWrapper delay={0}>
-            <TouchableOpacity
+            <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
                 <Link href="/search?query=h" asChild>
@@ -94,12 +105,12 @@ export default function HomeScreen() {
                     <Text style={styles.buttonText}>Humanidades</Text>
                   </View>
                 </Link>
-              </TouchableOpacity>
+              </Pressable>
             </AnimatedButtonWrapper>
             </View>
             <View style={styles.buttonWrapper}>
             <AnimatedButtonWrapper delay={0}>
-            <TouchableOpacity
+            <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
                 <Link href="/search?query=c" asChild>
@@ -108,14 +119,14 @@ export default function HomeScreen() {
                     <Text style={styles.buttonText}>Ciencias</Text>
                   </View>
                 </Link>
-              </TouchableOpacity>
+              </Pressable>
             </AnimatedButtonWrapper>
             </View>
           </View>
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
             <AnimatedButtonWrapper delay={0}>
-            <TouchableOpacity
+            <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
                 <Link href="/search?query=b" asChild>
@@ -124,12 +135,12 @@ export default function HomeScreen() {
                     <Text style={styles.buttonText}>Biblioteca</Text>
                   </View>
                 </Link>
-              </TouchableOpacity>
+              </Pressable>
               </AnimatedButtonWrapper>
             </View>
             <View style={styles.buttonWrapper}>
             <AnimatedButtonWrapper delay={0}>
-            <TouchableOpacity
+            <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
                 <Link href="/search?query=i" asChild>
@@ -139,14 +150,14 @@ export default function HomeScreen() {
                     <Text style={styles.buttonText}>Ingeniería</Text>
                   </View>
                 </Link>
-              </TouchableOpacity>
+              </Pressable>
             </AnimatedButtonWrapper>
             </View>
           </View>
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
             <AnimatedButtonWrapper delay={0}>
-            <TouchableOpacity
+            <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
                 <Link href="/search?query=r" asChild>
@@ -155,12 +166,12 @@ export default function HomeScreen() {
                     <Text style={styles.buttonText}>Reloj</Text>
                   </View>
                 </Link>
-              </TouchableOpacity>
+              </Pressable>
               </AnimatedButtonWrapper>
             </View>
             <View style={styles.buttonWrapper}>
             <AnimatedButtonWrapper delay={0}>
-            <TouchableOpacity
+            <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
                 <Link href="/search?query=m" asChild>
@@ -169,35 +180,35 @@ export default function HomeScreen() {
                     <Text style={styles.buttonText}>Mecano</Text>
                   </View>
                 </Link>
-              </TouchableOpacity>
+              </Pressable>
             </AnimatedButtonWrapper>
             </View>
           </View>
           <View style={styles.buttonRow}>
             <View style={styles.buttonWrapper}>
             <AnimatedButtonWrapper delay={0}>
-            <TouchableOpacity
+            <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
                 <Link href="/search?query=e" asChild>
                   <View style={styles.buttonWrapper}>
-                  <Icon name="school" size={40} color="#CE0615" style={styles.icon} />                     <Text style={styles.buttonText}>ESE</Text>
+                  <Icon name="school" size={40} color="#CE0615" style={styles.icon} /><Text style={styles.buttonText}>ESE</Text>
                   </View>
                 </Link>
-              </TouchableOpacity>
+              </Pressable>
               </AnimatedButtonWrapper>
             </View>
             <View style={styles.buttonWrapper}>
             <AnimatedButtonWrapper delay={0}>
-            <TouchableOpacity
+            <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
                 <Link href="/search?query=ce" asChild>
                   <View style={styles.buttonWrapper}>
-                  <Icon name="landmark" size={40} color="#CE0615" style={styles.icon} />                     <Text style={styles.buttonText}>Central</Text>
+                  <Icon name="landmark" size={40} color="#CE0615" style={styles.icon} /><Text style={styles.buttonText}>Central</Text>
                   </View>
                 </Link>
-              </TouchableOpacity>
+              </Pressable>
             </AnimatedButtonWrapper>
             </View>
           </View>
@@ -206,7 +217,7 @@ export default function HomeScreen() {
 
       <View style={styles.sectionContainer}>
       <AnimatedButtonWrapper delay={0}>
-            <TouchableOpacity
+            <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               >
           <Link href="/campus" asChild>
@@ -215,7 +226,7 @@ export default function HomeScreen() {
             <Text style={styles.buttonText}>Mapa de Campus</Text>
             </View>
           </Link>
-        </TouchableOpacity>
+        </Pressable>
         </AnimatedButtonWrapper>
       </View>
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Button, TouchableOpacity } from 'react-native';
+import { View, Text, Button, Pressable } from 'react-native';
 import { Camera } from 'expo-camera';
 import { CameraView } from 'expo-camera';
 
@@ -35,9 +35,9 @@ export default function CameraScreen() {
             flexDirection: 'row',
             justifyContent: 'flex-end',
           }}>
-          <TouchableOpacity style={{ margin: 20 }} onPress={toggleCameraFacing}>
+          <Pressable style={{ margin: 20 }} onPress={toggleCameraFacing}>
             <Text style={{ color: 'white', fontSize: 20 }}>Flip Camera</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </CameraView>
     </View>
