@@ -20,6 +20,10 @@ export default function RootLayout() {
   const lastURLRef = useRef<string>(window.location.href);
 
   useEffect(() => {
+    document.title = 'UANDES - ClassFinder';
+  }, []);
+
+  useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
     }
