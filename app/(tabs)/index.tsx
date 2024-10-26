@@ -19,6 +19,7 @@ import { ThemedView } from "@/components/ThemedView";
 import { Link } from "expo-router";
 
 import { speakText } from "../utils/TextToSpeech";
+import { playSound } from "../utils/playSound";
 
 interface AnimatedButtonWrapperProps {
   delay: number;
@@ -114,6 +115,7 @@ export default function HomeScreen() {
             <AnimatedButtonWrapper delay={0}>
             <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
+              onPress={() => playSound("../../assets/sounds/ciencias.ogg")}
               >
                 <Link href="/search?query=c" asChild>
                   <View style={styles.buttonWrapper}>
