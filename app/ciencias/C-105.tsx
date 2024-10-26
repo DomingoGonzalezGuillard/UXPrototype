@@ -17,7 +17,7 @@ export default function C101Screen() {
         </Link>
       </View>
       <Text style={styles.title}>C-105</Text>
-      <Image source={require('../../assets/images/c-105gif.gif')} style={styles.image} />
+      <Image source={require('../../assets/images/ciencias/c-105.gif')} style={styles.image} />
     </View>
   );
 }
@@ -47,8 +47,8 @@ const styles = StyleSheet.create({
     marginLeft: 5, // Ajusta el espacio entre el icono y el texto
   },
   image: {
-    width: 330,
-    height: 400,
+    width: 470,
+    height: 610,
     marginTop: 20,
   },
   icon: {

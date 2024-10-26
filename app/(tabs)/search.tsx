@@ -19,7 +19,7 @@ type Item = {
 const items = [
   { id: "1", code: "C-101", route: 'ciencias/C-101', piso: '1', sala: '101', edificio: 'Ciencias' },
   { id: "2", code: "C-102", route: 'ciencias/C-102', piso: '1', sala: '102', edificio: 'Ciencias' },
-  { id: "28", code: "C-106", route: 'ciencias/C-106', piso: '1', sala: '105', edificio: 'Ciencias' },
+  { id: "28", code: "C-105", route: 'ciencias/C-105', piso: '1', sala: '105', edificio: 'Ciencias' },
   { id: "3", code: "C-201", route: 'ciencias/C-201', piso: '2', sala: '201', edificio: 'Ciencias' },
   { id: "4", code: "C-202", route: 'ciencias/C-202', piso: '2', sala: '202', edificio: 'Ciencias' },
   
