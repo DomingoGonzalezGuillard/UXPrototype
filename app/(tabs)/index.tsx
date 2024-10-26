@@ -75,13 +75,15 @@ export default function HomeScreen() {
       }
     >
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Bienvenido!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-
-      <button onClick={() => speakText("Bienvenido. Buscar por edificio. Humanidades. Ciencias. Biblioteca. Ingenieria.")}>
-        Text to Speech
-      </button>
+      <ThemedText type="title">Bienvenido!</ThemedText>
+      <HelloWave />
+      <a 
+        onClick={() => speakText("Bienvenido. Buscar por edificio. Humanidades. Ciencias. Biblioteca. Ingenieria. Reloj. Mecano. ESE. Central. Mapa de Campus")}
+        style={styles.iconContainer}
+      >
+        <Icon name="volume-up" size={40} color="#ffffff"/>
+      </a>
+    </ThemedView>
       
       <View style={styles.sectionContainer}>
         <View style={styles.sectionTitleContainer}>
@@ -251,9 +253,13 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+
   titleContainer: {
+    display: 'flex',
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: 'space-between',
+    width: '100%',
     gap: 8,
     padding: 20,
   },
@@ -358,6 +364,11 @@ const styles = StyleSheet.create({
   },
   listContent: {
     flexGrow: 1,
+  },
+
+  iconContainer: {
+    alignSelf: 'flex-end',
+    marginLeft: 'auto', // Moves it to the far right within the flex container
   },
 
 });

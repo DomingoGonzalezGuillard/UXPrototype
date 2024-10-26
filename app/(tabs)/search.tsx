@@ -5,6 +5,17 @@ import { useGlobalSearchParams, Link } from "expo-router";
 import Fuse from "fuse.js";
 import Icon from "react-native-vector-icons/FontAwesome"; // Importamos el ícono de FontAwesome
 
+import { speakText } from "../utils/TextToSpeech";
+
+type Item = {
+  id: string;
+  code: string;
+  route: string;
+  piso: string;
+  sala: string;
+  edificio: string;
+};
+
 const items = [
   { id: "1", code: "C-101", route: '/C-101', piso: '1', sala: '101', edificio: 'Ciencias' },
   { id: "2", code: "C-102", route: '/C-102', piso: '1', sala: '102', edificio: 'Ciencias' },
@@ -36,6 +47,10 @@ const items = [
   { id: "24", code: "B-301", route: '/B-301', piso: '3', sala: '301', edificio: 'Biblioteca' },
   { id: "25", code: "B-302", route: '/B-302', piso: '3', sala: '302', edificio: 'Biblioteca' }
 ];
+
+const itemsToString = (items: Item[]): string => {
+  return items.map(item => item.code).join('. ');
+};
 
 export default function SearchScreen() {
   const { query } = useGlobalSearchParams<{ query: string }>();
@@ -77,6 +92,12 @@ export default function SearchScreen() {
       <View style={styles.instructionContainer}>
         <Icon name="chevron-right" size={20} color="#CE0615" style={styles.icon} />
         <Text style={styles.instructionText}>Introduce nombre de sala 🚪</Text>
+        <a 
+          onClick={() => speakText(`${"Introduce nombre de sala."} ${itemsToString(filteredItems)}`)}
+          style={styles.iconContainer}
+        >
+          <Icon name="volume-up" size={40} color="#000000"/>
+        </a>
       </View>
       <View>
         <SearchBar
@@ -167,5 +188,9 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginRight: 10, // Separar el ícono del texto
+  },
+  iconContainer: {
+    alignSelf: 'flex-end',
+    marginLeft: 'auto', // Moves it to the far right within the flex container
   },
 });
