@@ -17,16 +17,19 @@ type Item = {
 };
 
 const items = [
-  { id: "1", code: "C-101", route: '/C-101', piso: '1', sala: '101', edificio: 'Ciencias' },
-  { id: "2", code: "C-102", route: '/C-102', piso: '1', sala: '102', edificio: 'Ciencias' },
-  { id: "28", code: "C-105", route: '/C-106', piso: '1', sala: '105', edificio: 'Ciencias' },
-  { id: "3", code: "C-201", route: '/C-201', piso: '2', sala: '201', edificio: 'Ciencias' },
-  { id: "4", code: "C-202", route: '/C-202', piso: '2', sala: '202', edificio: 'Ciencias' },
+  { id: "1", code: "C-101", route: 'ciencias/C-101', piso: '1', sala: '101', edificio: 'Ciencias' },
+  { id: "2", code: "C-102", route: 'ciencias/C-102', piso: '1', sala: '102', edificio: 'Ciencias' },
+  { id: "28", code: "C-106", route: 'ciencias/C-106', piso: '1', sala: '105', edificio: 'Ciencias' },
+  { id: "3", code: "C-201", route: 'ciencias/C-201', piso: '2', sala: '201', edificio: 'Ciencias' },
+  { id: "4", code: "C-202", route: 'ciencias/C-202', piso: '2', sala: '202', edificio: 'Ciencias' },
+  
   { id: "5", code: "H-101", route: '/H-101', piso: '1', sala: '101', edificio: 'Humanidades' },
   { id: "6", code: "H-201", route: '/H-201', piso: '2', sala: '201', edificio: 'Humanidades' },
+  
   { id: "7", code: "R-101", route: '/R-101', piso: '1', sala: '101', edificio: 'Reloj' },
   { id: "8", code: "R-102", route: '/R-102', piso: '1', sala: '102', edificio: 'Reloj' },
   { id: "9", code: "R-201", route: '/R-201', piso: '2', sala: '201', edificio: 'Reloj' },
+  
   { id: "10", code: "I-101", route: '/I-101', piso: '1', sala: '101', edificio: 'Ingeniería' },
   { id: "11", code: "I-102", route: '/I-102', piso: '1', sala: '102', edificio: 'Ingeniería' },
   { id: "12", code: "I-103", route: '/I-103', piso: '1', sala: '103', edificio: 'Ingeniería' },
@@ -38,6 +41,7 @@ const items = [
   { id: "29", code: "I-204", route: '/I-204', piso: '2', sala: '204', edificio: 'Ingeniería' },
   { id: "18", code: "I-301", route: '/I-301', piso: '3', sala: '301', edificio: 'Ingeniería' },
   { id: "19", code: "I-302", route: '/I-302', piso: '3', sala: '302', edificio: 'Ingeniería' },
+  
   { id: "26", code: "B-101", route: '/B-101', piso: '1', sala: '101', edificio: 'Biblioteca' },
   { id: "27", code: "B-102", route: '/B-102', piso: '1', sala: '102', edificio: 'Biblioteca' },
   { id: "20", code: "B-201", route: '/B-201', piso: '2', sala: '201', edificio: 'Biblioteca' },

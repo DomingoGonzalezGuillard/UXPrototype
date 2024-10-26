@@ -5,7 +5,7 @@ export default function Campus() {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../../assets/images/campus.png")}
+        source={require("../assets/images/campus.png")}
         style={[styles.image, { transform: [{ rotate: "90deg" }] }]}
       />
     </View>

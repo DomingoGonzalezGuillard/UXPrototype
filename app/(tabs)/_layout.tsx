@@ -33,58 +33,6 @@ export default function TabLayout() {
           ),
         }}
       />
-        
-      <Tabs.Screen
-        name="camera"
-        options={{
-          title: 'Camera',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'camera' : 'camera-outline'} color="#CE0615" />
-          ),
-          
-        }}
-      />
-    <Tabs.Screen
-      name="C-106"
-      options={{
-        title: 'C-106',
-        tabBarIcon: ({ color, focused }) => (
-          <TabBarIcon name={focused ? 'camera' : 'camera-outline'} color={color} />
-        ),
-        tabBarButton: () => null, // Hide the tab from the tab bar
-      }}
-    />
-    <Tabs.Screen
-      name="campus"
-      options={{
-        title: 'Campus',
-        tabBarIcon: ({ color, focused }) => (
-          <TabBarIcon name={focused ? 'camera' : 'camera-outline'} color={color} />
-        ),
-        tabBarButton: () => null, // Hide the tab from the tab bar
-      }}
-    />
-<Tabs.Screen
-      name="C-201"
-      options={{
-        title: 'C-201',
-        tabBarIcon: ({ color, focused }) => (
-          <TabBarIcon name={focused ? 'camera' : 'camera-outline'} color={color} />
-        ),
-        tabBarButton: () => null, // Hide the tab from the tab bar
-      }}
-    />
-
-<Tabs.Screen
-      name="I-204"
-      options={{
-        title: 'I-204',
-        tabBarIcon: ({ color, focused }) => (
-          <TabBarIcon name={focused ? 'camera' : 'camera-outline'} color={color} />
-        ),
-        tabBarButton: () => null, // Hide the tab from the tab bar
-      }}
-    />
     </Tabs>
   );
 }
