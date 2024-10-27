@@ -29,7 +29,7 @@ export default function TabLayout() {
         options={{
           title: 'Search',
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon name={focused ? 'search' : 'search-outline'} color="#CE0615" />  
+            <TabBarIcon name={focused ? 'search' : 'search-outline'} color="#CE0615" />
           ),
         }}
       />

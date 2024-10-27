@@ -99,7 +99,8 @@ export default function HomeScreen() {
             <View style={styles.buttonWrapper}>
               <AnimatedButtonWrapper delay={0}>
             <Pressable
-              style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
+              style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]}
+              onPress={() => playSound("../../assets/sounds/humanidades.ogg")} 
               >
                 <Link href="/search?query=h" asChild>
                   <View style={styles.buttonWrapper}>
@@ -146,6 +147,7 @@ export default function HomeScreen() {
             <AnimatedButtonWrapper delay={0}>
             <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
+              onPress={() => playSound("../../assets/sounds/ingenieria.ogg")} 
               >
                 <Link href="/search?query=i" asChild>
                   <View style={styles.buttonWrapper}>

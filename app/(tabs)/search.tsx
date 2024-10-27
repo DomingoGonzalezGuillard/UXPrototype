@@ -1,6 +1,6 @@
 import SearchBar from "../../components/SearchBar";
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, FlatList, useWindowDimensions } from "react-native";
+import { View, Text, StyleSheet, FlatList, useWindowDimensions, Pressable } from "react-native";
 import { useGlobalSearchParams, Link } from "expo-router";
 import Fuse from "fuse.js";
 import Icon from "react-native-vector-icons/FontAwesome"; // Importamos el ícono de FontAwesome
@@ -15,6 +15,8 @@ type Item = {
   sala: string;
   edificio: string;
 };
+
+import { playSound } from "../utils/playSound";
 
 const items = [
   { id: "1", code: "C-101", route: 'ciencias/C-101', piso: '1', sala: '101', edificio: 'Ciencias' },
@@ -93,6 +95,14 @@ export default function SearchScreen() {
 
   return (
     <View style={styles.container}>
+      <View style={styles.backButtonContainer}>
+        <Link href="/" asChild>
+          <View style={styles.backButtonContent}>
+            <Icon name="chevron-left" size={20} color="#CE0615" style={styles.icon} />
+            <Text style={styles.backText}>Back</Text>
+          </View>
+        </Link>
+      </View>
       <View style={styles.instructionContainer}>
         <Icon name="chevron-right" size={20} color="#CE0615" style={styles.icon} />
         <Text style={styles.instructionText}>Introduce nombre de sala 🚪</Text>
@@ -119,7 +129,8 @@ export default function SearchScreen() {
         columnWrapperStyle={styles.row}
         contentContainerStyle={styles.listContent}
         renderItem={({ item }) => (
-          <Link href={item.route ?? '/default'} style={styles.link}>
+          <Pressable onPress={() => playSound("../../assets/sounds/click.ogg")}>
+          <Link href={item.route ?? '/default'} style={styles.link} >
             <View style={[styles.buttonContainer, { width: getItemWidth() }]}>
               <View style={styles.titleContainer}>
                 <Text style={styles.title}>{item.code}</Text>
@@ -131,6 +142,7 @@ export default function SearchScreen() {
               </View>
             </View>
           </Link>
+          </Pressable>
         )}
       />
     </View>
@@ -138,6 +150,20 @@ export default function SearchScreen() {
 }
 
 const styles = StyleSheet.create({
+  backButtonContainer: {
+    flexDirection: 'row',
+    marginBottom: 20,
+    marginTop: 10,
+  },
+  backButtonContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  backText: {
+    fontSize: 16,
+    color: '#CE0615',
+    marginLeft: 5, // Ajusta el espacio entre el icono y el texto
+  },
   container: {
     flex: 1,
     padding: 10,
