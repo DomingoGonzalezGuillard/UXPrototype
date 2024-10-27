@@ -15,7 +15,7 @@ export default function C201Screen() {
         <Link href="/" asChild>
           <View style={styles.backButtonContent}>
             <Icon name="chevron-left" size={20} color="#CE0615" style={styles.icon} />
-            <Text style={styles.backText}>Back</Text>
+            <Text style={styles.backText}>Volver</Text>
           </View>
         </Link>
         </Pressable>
@@ -23,8 +23,7 @@ export default function C201Screen() {
       
       <View style={styles.container}>
         <Text style={styles.title}>Mapa Campus</Text>
-        {/* <Image source={require('../../assets/images/2-201.png')} style={styles.image} />
-        <Image source={require('../../assets/images/1-201.png')} style={styles.image} /> */}
+        <Image source={require('../assets/images/mapa_campus.png')} style={styles.image} />
       </View>
     </ScrollView>
   );
@@ -61,9 +60,9 @@ const styles = StyleSheet.create({
     marginLeft: 5, // Ajusta el espacio entre el icono y el texto
   },
   image: {
-    width: 330,
-    height: 400,
-    marginBottom: 20,
+    width: 470,
+    height: 610,
+    marginTop: 20,
   },
   icon: {
     marginRight: 5,

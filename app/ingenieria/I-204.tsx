@@ -34,7 +34,7 @@ export default function C204Screen() {
         <Link href="/search" asChild>
           <View style={styles.backButtonContent}>
             <Icon name="chevron-left" size={20} color="#CE0615" style={styles.icon} />
-            <Text style={styles.backText}>Back</Text>
+            <Text style={styles.backText}>Volver</Text>
           </View>
         </Link>
       </View>

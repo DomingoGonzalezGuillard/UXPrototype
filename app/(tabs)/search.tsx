@@ -101,7 +101,7 @@ export default function SearchScreen() {
         <Link href="/" asChild>
           <View style={styles.backButtonContent}>
             <Icon name="chevron-left" size={20} color="#CE0615" style={styles.icon} />
-            <Text style={styles.backText}>Back</Text>
+            <Text style={styles.backText}>Volver</Text>
           </View>
         </Link>
         </Pressable>
