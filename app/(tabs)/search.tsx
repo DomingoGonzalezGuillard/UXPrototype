@@ -97,7 +97,7 @@ export default function SearchScreen() {
     <View style={styles.container}>
       
       <View style={styles.backButtonContainer}>
-        <Pressable onPress={() => playSound("../../assets/sounds/back.ogg")}>
+        <Pressable onPress={() => playSound(require('@/assets/sounds/back.mp3'))}>
         <Link href="/" asChild>
           <View style={styles.backButtonContent}>
             <Icon name="chevron-left" size={20} color="#CE0615" style={styles.icon} />
@@ -133,7 +133,7 @@ export default function SearchScreen() {
         columnWrapperStyle={styles.row}
         contentContainerStyle={styles.listContent}
         renderItem={({ item }) => (
-          <Pressable onPress={() => playSound("../../assets/sounds/click.ogg")}>
+          <Pressable onPress={() => playSound(require('@/assets/sounds/click.mp3'))}>
           <Link href={item.route ?? '/default'} style={styles.link} >
             <View style={[styles.buttonContainer, { width: getItemWidth() }]}>
               <View style={styles.titleContainer}>

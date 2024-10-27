@@ -100,7 +100,7 @@ export default function HomeScreen() {
               <AnimatedButtonWrapper delay={0}>
             <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]}
-              onPress={() => playSound("../../assets/sounds/humanidades.ogg")} 
+              onPress={() => playSound(require('@/assets/sounds/humanidades.mp3'))} 
               >
                 <Link href="/search?query=h" asChild>
                   <View style={styles.buttonWrapper}>
@@ -116,7 +116,7 @@ export default function HomeScreen() {
             <AnimatedButtonWrapper delay={0}>
             <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
-              onPress={() => playSound("../../assets/sounds/ciencias.ogg")}
+              onPress={() => playSound(require('@/assets/sounds/ciencias.mp3'))}
               >
                 <Link href="/search?query=c" asChild>
                   <View style={styles.buttonWrapper}>
@@ -133,7 +133,7 @@ export default function HomeScreen() {
             <AnimatedButtonWrapper delay={0}>
             <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
-              onPress={() => playSound("../../assets/sounds/biblioteca.ogg")} 
+              onPress={() => playSound(require('@/assets/sounds/biblioteca.mp3'))} 
               >
                 <Link href="/search?query=b" asChild>
                   <View style={styles.buttonWrapper}>
@@ -148,7 +148,7 @@ export default function HomeScreen() {
             <AnimatedButtonWrapper delay={0}>
             <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
-              onPress={() => playSound("../../assets/sounds/ingenieria.ogg")} 
+              onPress={() => playSound(require('@/assets/sounds/ingenieria.mp3'))} 
               >
                 <Link href="/search?query=i" asChild>
                   <View style={styles.buttonWrapper}>
@@ -166,7 +166,7 @@ export default function HomeScreen() {
             <AnimatedButtonWrapper delay={0}>
             <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
-              onPress={() => playSound("../../assets/sounds/reloj.ogg")} 
+              onPress={() => playSound(require('@/assets/sounds/reloj.mp3'))} 
               >
                 <Link href="/search?query=r" asChild>
                   <View style={styles.buttonWrapper}>
@@ -181,7 +181,7 @@ export default function HomeScreen() {
             <AnimatedButtonWrapper delay={0}>
             <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
-              onPress={() => playSound("../../assets/sounds/mecano.ogg")} 
+              onPress={() => playSound(require('@/assets/sounds/mecano.mp3'))} 
               >
                 <Link href="/search?query=m" asChild>
                   <View style={styles.buttonWrapper}>
@@ -198,7 +198,7 @@ export default function HomeScreen() {
             <AnimatedButtonWrapper delay={0}>
             <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
-              onPress={() => playSound("../../assets/sounds/ese.ogg")} 
+              onPress={() => playSound(require('@/assets/sounds/ese.mp3'))} 
               >
                 <Link href="/search?query=e" asChild>
                   <View style={styles.buttonWrapper}>
@@ -212,7 +212,7 @@ export default function HomeScreen() {
             <AnimatedButtonWrapper delay={0}>
             <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
-              onPress={() => playSound("../../assets/sounds/central.ogg")} 
+              onPress={() => playSound(require('@/assets/sounds/central.mp3'))} 
               >
                 <Link href="/search?query=ce" asChild>
                   <View style={styles.buttonWrapper}>
@@ -230,7 +230,7 @@ export default function HomeScreen() {
       <AnimatedButtonWrapper delay={0}>
             <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
-              onPress={() => playSound("../../assets/sounds/openmap.ogg")} 
+              onPress={() => playSound(require('@/assets/sounds/openmap.mp3'))} 
               >
           <Link href="/campus" asChild>
             <View style={styles.buttonWrapper}>

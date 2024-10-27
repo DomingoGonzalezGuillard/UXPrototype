@@ -11,7 +11,7 @@ export default function C201Screen() {
     <ScrollView contentContainerStyle={styles.scrollViewContainer}>
       
       <View style={styles.backButtonContainer}>
-        <Pressable onPress={() => playSound("../assets/sounds/back.ogg")}>
+        <Pressable onPress={() => playSound(require('@/assets/sounds/back.mp3'))}>
         <Link href="/" asChild>
           <View style={styles.backButtonContent}>
             <Icon name="chevron-left" size={20} color="#CE0615" style={styles.icon} />

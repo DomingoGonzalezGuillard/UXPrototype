@@ -13,7 +13,7 @@ export default function NotFoundScreen() {
         <View style={styles.content}>
           <ThemedText type="title" style={styles.title}>Página no encontrada</ThemedText>
           <ThemedText style={styles.message}>La pantalla que estás buscando no existe o ha sido movida.</ThemedText>
-          <Pressable onPress={() => playSound("../../assets/sounds/back.ogg")}>
+          <Pressable onPress={() => playSound(require('@/assets/sounds/back.mp3'))}>
           <Link href="/" style={styles.link}>
             <ThemedText type="link" style={styles.linkText}>Ir a la página principal</ThemedText>
           </Link>
