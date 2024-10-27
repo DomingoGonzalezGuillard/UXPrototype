@@ -133,6 +133,7 @@ export default function HomeScreen() {
             <AnimatedButtonWrapper delay={0}>
             <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
+              onPress={() => playSound("../../assets/sounds/biblioteca.ogg")} 
               >
                 <Link href="/search?query=b" asChild>
                   <View style={styles.buttonWrapper}>
@@ -197,6 +198,7 @@ export default function HomeScreen() {
             <AnimatedButtonWrapper delay={0}>
             <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
+              onPress={() => playSound("../../assets/sounds/ese.ogg")} 
               >
                 <Link href="/search?query=e" asChild>
                   <View style={styles.buttonWrapper}>
