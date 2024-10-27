@@ -95,14 +95,18 @@ export default function SearchScreen() {
 
   return (
     <View style={styles.container}>
+      
       <View style={styles.backButtonContainer}>
+        <Pressable onPress={() => playSound("../../assets/sounds/back.ogg")}>
         <Link href="/" asChild>
           <View style={styles.backButtonContent}>
             <Icon name="chevron-left" size={20} color="#CE0615" style={styles.icon} />
             <Text style={styles.backText}>Back</Text>
           </View>
         </Link>
+        </Pressable>
       </View>
+      
       <View style={styles.instructionContainer}>
         <Icon name="chevron-right" size={20} color="#CE0615" style={styles.icon} />
         <Text style={styles.instructionText}>Introduce nombre de sala 🚪</Text>

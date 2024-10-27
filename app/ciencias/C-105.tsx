@@ -1,21 +1,25 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, Button } from 'react-native';
+import { View, Text, StyleSheet, Image, Button, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Link } from 'expo-router';
 import Icon from "react-native-vector-icons/FontAwesome5"; // Importamos el ícono de FontAwesome
+import { playSound } from '../utils/playSound';
 
 export default function C101Screen() {
 
   return (
     <View style={styles.container}>
       <View style={styles.backButtonContainer}>
+      <Pressable onPress={() => playSound("../../assets/sounds/back.ogg")}>
         <Link href="/search" asChild>
           <View style={styles.backButtonContent}>
             <Icon name="chevron-left" size={20} color="#CE0615" style={styles.icon} />
             <Text style={styles.backText}>Back</Text>
           </View>
         </Link>
+      </Pressable>
       </View>
+      
       <Text style={styles.title}>C-105</Text>
       <Image source={require('../../assets/images/ciencias/c-105.gif')} style={styles.image} />
     </View>

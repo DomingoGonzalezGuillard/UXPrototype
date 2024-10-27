@@ -165,6 +165,7 @@ export default function HomeScreen() {
             <AnimatedButtonWrapper delay={0}>
             <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
+              onPress={() => playSound("../../assets/sounds/reloj.ogg")} 
               >
                 <Link href="/search?query=r" asChild>
                   <View style={styles.buttonWrapper}>
@@ -179,6 +180,7 @@ export default function HomeScreen() {
             <AnimatedButtonWrapper delay={0}>
             <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
+              onPress={() => playSound("../../assets/sounds/mecano.ogg")} 
               >
                 <Link href="/search?query=m" asChild>
                   <View style={styles.buttonWrapper}>
@@ -208,6 +210,7 @@ export default function HomeScreen() {
             <AnimatedButtonWrapper delay={0}>
             <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
+              onPress={() => playSound("../../assets/sounds/central.ogg")} 
               >
                 <Link href="/search?query=ce" asChild>
                   <View style={styles.buttonWrapper}>
@@ -225,6 +228,7 @@ export default function HomeScreen() {
       <AnimatedButtonWrapper delay={0}>
             <Pressable
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
+              onPress={() => playSound("../../assets/sounds/openmap.ogg")} 
               >
           <Link href="/campus" asChild>
             <View style={styles.buttonWrapper}>
