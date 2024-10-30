@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, Button, Pressable } from 'react-native';
 import { Link } from 'expo-router';
 import Icon from "react-native-vector-icons/FontAwesome5"; // Importamos el ícono de FontAwesome
-import { playSound } from './utils/playSound';
+import { playSound } from '../utils/playSound';
 
 
 export default function C201Screen() {

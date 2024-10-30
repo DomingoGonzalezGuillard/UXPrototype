@@ -5,57 +5,13 @@ import { useGlobalSearchParams, Link } from "expo-router";
 import Fuse from "fuse.js";
 import Icon from "react-native-vector-icons/FontAwesome"; // Importamos el ícono de FontAwesome
 
-import { speakText } from "../utils/TextToSpeech";
+import { speakText } from "../../utils/TextToSpeech";
+import { playSound } from "../../utils/playSound";
+import { Classroom, classrooms } from "@/classrooms";
+import { capitalize } from "@/utils/capitalize";
 
-type Item = {
-  id: string;
-  code: string;
-  route: string;
-  piso: string;
-  sala: string;
-  edificio: string;
-};
-
-import { playSound } from "../utils/playSound";
-
-const items = [
-  { id: "1", code: "C-101", route: 'ciencias/C-101', piso: '1', sala: '101', edificio: 'Ciencias' },
-  { id: "2", code: "C-102", route: 'ciencias/C-102', piso: '1', sala: '102', edificio: 'Ciencias' },
-  { id: "28", code: "C-105", route: 'ciencias/C-105', piso: '1', sala: '105', edificio: 'Ciencias' },
-  { id: "3", code: "C-201", route: 'ciencias/C-201', piso: '2', sala: '201', edificio: 'Ciencias' },
-  { id: "4", code: "C-202", route: 'ciencias/C-202', piso: '2', sala: '202', edificio: 'Ciencias' },
-  
-  { id: "5", code: "H-101", route: '/H-101', piso: '1', sala: '101', edificio: 'Humanidades' },
-  { id: "6", code: "H-201", route: '/H-201', piso: '2', sala: '201', edificio: 'Humanidades' },
-  
-  { id: "7", code: "R-101", route: '/R-101', piso: '1', sala: '101', edificio: 'Reloj' },
-  { id: "8", code: "R-102", route: '/R-102', piso: '1', sala: '102', edificio: 'Reloj' },
-  { id: "9", code: "R-201", route: '/R-201', piso: '2', sala: '201', edificio: 'Reloj' },
-  
-  { id: "10", code: "I-101", route: '/I-101', piso: '1', sala: '101', edificio: 'Ingeniería' },
-  { id: "11", code: "I-102", route: '/I-102', piso: '1', sala: '102', edificio: 'Ingeniería' },
-  { id: "12", code: "I-103", route: '/I-103', piso: '1', sala: '103', edificio: 'Ingeniería' },
-  { id: "13", code: "I-104", route: '/I-104', piso: '1', sala: '104', edificio: 'Ingeniería' },
-  { id: "14", code: "I-105", route: '/I-105', piso: '1', sala: '105', edificio: 'Ingeniería' },
-  { id: "15", code: "I-106", route: '/I-106', piso: '1', sala: '106', edificio: 'Ingeniería' },
-  { id: "16", code: "I-201", route: '/I-201', piso: '2', sala: '201', edificio: 'Ingeniería' },
-  { id: "17", code: "I-202", route: '/I-202', piso: '2', sala: '202', edificio: 'Ingeniería' },
-  { id: "29", code: "I-204", route: '/I-204', piso: '2', sala: '204', edificio: 'Ingeniería' },
-  { id: "18", code: "I-301", route: '/I-301', piso: '3', sala: '301', edificio: 'Ingeniería' },
-  { id: "19", code: "I-302", route: '/I-302', piso: '3', sala: '302', edificio: 'Ingeniería' },
-  
-  { id: "26", code: "B-101", route: '/B-101', piso: '1', sala: '101', edificio: 'Biblioteca' },
-  { id: "27", code: "B-102", route: '/B-102', piso: '1', sala: '102', edificio: 'Biblioteca' },
-  { id: "20", code: "B-201", route: '/B-201', piso: '2', sala: '201', edificio: 'Biblioteca' },
-  { id: "21", code: "B-202", route: '/B-202', piso: '2', sala: '202', edificio: 'Biblioteca' },
-  { id: "22", code: "B-203", route: '/B-203', piso: '2', sala: '203', edificio: 'Biblioteca' },
-  { id: "23", code: "B-204", route: '/B-204', piso: '2', sala: '204', edificio: 'Biblioteca' },
-  { id: "24", code: "B-301", route: '/B-301', piso: '3', sala: '301', edificio: 'Biblioteca' },
-  { id: "25", code: "B-302", route: '/B-302', piso: '3', sala: '302', edificio: 'Biblioteca' }
-];
-
-const itemsToString = (items: Item[]): string => {
-  return items.map(item => item.code).join('. ');
+const itemsToString = (items: Classroom[]): string => {
+  return items.map(item => `${item.id}`).join('. ');
 };
 
 export default function SearchScreen() {
@@ -63,23 +19,23 @@ export default function SearchScreen() {
   const { width } = useWindowDimensions();
 
   const [searchText, setSearchText] = useState(query ?? "");
-  const [filteredItems, setFilteredItems] = useState(items);
-
-  const options = {
-    keys: ["code"],
-    includeScore: true,
-  };
-
-  const fuse = new Fuse(items, options);
+  const [filteredItems, setFilteredItems] = useState<Classroom[]>(Object.values(classrooms));
 
   useEffect(() => {
+    const options = {
+      keys: ["id"],
+      includeScore: true,
+    };
+
+    const fuse = new Fuse(Object.values(classrooms), options); // Crear fuse aquí
+
     if (searchText.trim() === "") {
-      setFilteredItems(items);
+      setFilteredItems(Object.values(classrooms));
     } else {
       const result = fuse.search(searchText);
       setFilteredItems(result.map(({ item }) => item));
     }
-  }, [searchText]);
+  }, [searchText]); // Dependencia en searchText
 
   useEffect(() => {
     if (query !== undefined) {
@@ -98,12 +54,12 @@ export default function SearchScreen() {
       
       <View style={styles.backButtonContainer}>
         <Pressable onPress={() => playSound(require('@/assets/sounds/back.mp3'))}>
-        <Link href="/" asChild>
-          <View style={styles.backButtonContent}>
-            <Icon name="chevron-left" size={20} color="#CE0615" style={styles.icon} />
-            <Text style={styles.backText}>Volver</Text>
-          </View>
-        </Link>
+          <Link href="/" asChild>
+            <View style={styles.backButtonContent}>
+              <Icon name="chevron-left" size={20} color="#CE0615" style={styles.icon} />
+              <Text style={styles.backText}>Volver</Text>
+            </View>
+          </Link>
         </Pressable>
       </View>
       
@@ -117,6 +73,7 @@ export default function SearchScreen() {
           <Icon name="volume-up" size={40} color="#000000"/>
         </a>
       </View>
+
       <View>
         <SearchBar
           searchText={searchText}
@@ -127,104 +84,112 @@ export default function SearchScreen() {
 
       <FlatList
         data={filteredItems}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => `${item.build}-${item.number}`}
         numColumns={2}
         extraData={width}
         columnWrapperStyle={styles.row}
         contentContainerStyle={styles.listContent}
         renderItem={({ item }) => (
           <Pressable onPress={() => playSound(require('@/assets/sounds/click.mp3'))}>
-          <Link href={item.route ?? '/default'} style={styles.link} >
-            <View style={[styles.buttonContainer, { width: getItemWidth() }]}>
-              <View style={styles.titleContainer}>
-                <Text style={styles.title}>{item.code}</Text>
+            <Link href={{ pathname: `/classroom`, params: { id: item.id } }} style={styles.link} >
+              <View style={[styles.buttonContainer, { width: getItemWidth() }]}>
+                <View style={styles.titleContainer}>
+                  <Text style={styles.title}>{`${item.build[0].toUpperCase()}-${item.floor}${item.number}`}</Text>
+                </View>
+                <View style={styles.infoContainer}>
+                  <Text style={styles.infoText}>Edificio: {capitalize(item.build)}</Text>
+                  <Text style={styles.infoText}>Piso: {item.floor}</Text>
+                  <Text style={styles.infoText}>Sala: {item.number}</Text>
+                </View>
               </View>
-              <View style={styles.infoContainer}>
-                <Text style={styles.infoText}>Edificio: {item.edificio}</Text>
-                <Text style={styles.infoText}>Piso: {item.piso}</Text>
-                <Text style={styles.infoText}>Sala: {item.sala}</Text>
-              </View>
-            </View>
-          </Link>
+            </Link>
           </Pressable>
         )}
+        ListEmptyComponent={
+          <Text style={styles.emptyText}>No se encontraron salas.</Text>
+        }
       />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  backButtonContainer: {
-    flexDirection: 'row',
-    marginBottom: 20,
-    marginTop: 10,
-  },
-  backButtonContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  backText: {
-    fontSize: 16,
-    color: '#CE0615',
-    marginLeft: 5, // Ajusta el espacio entre el icono y el texto
-  },
-  container: {
-    flex: 1,
-    padding: 10,
-  },
-  instructionContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center', // Centrar horizontalmente
-    marginBottom: 10,
-  },
-  row: {
-    justifyContent: 'space-between',
-  },
-  buttonContainer: {
-    flexDirection: 'column',
-    alignItems: 'stretch',
-    marginBottom: 20,
-  },
-  titleContainer: {
-    backgroundColor: '#8B0000',
-    padding: 10,
-    alignItems: 'center',
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-  },
-  title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#fff',
-  },
-  infoContainer: {
-    backgroundColor: '#f4f4f4',
-    padding: 15,
-    alignItems: 'flex-start',
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
-  },
-  infoText: {
-    fontSize: 16,
-    color: '#000',
-  },
-  link: {
-    flex: 1,
-  },
-  instructionText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginLeft: 10, // Espaciado entre el ícono y el texto
-  },
-  listContent: {
-    flexGrow: 1,
-  },
-  icon: {
-    marginRight: 10, // Separar el ícono del texto
-  },
-  iconContainer: {
-    alignSelf: 'flex-end',
-    marginLeft: 'auto', // Moves it to the far right within the flex container
-  },
-});
+    emptyText: {
+        textAlign: "center",
+        fontSize: 16,
+        color: "#888",
+      },
+    backButtonContainer: {
+      flexDirection: 'row',
+      marginBottom: 20,
+      marginTop: 10,
+    },
+    backButtonContent: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    backText: {
+      fontSize: 16,
+      color: '#CE0615',
+      marginLeft: 5, // Ajusta el espacio entre el icono y el texto
+    },
+    container: {
+      flex: 1,
+      padding: 10,
+    },
+    instructionContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center', // Centrar horizontalmente
+      marginBottom: 10,
+    },
+    row: {
+      justifyContent: 'space-between',
+    },
+    buttonContainer: {
+      flexDirection: 'column',
+      alignItems: 'stretch',
+      marginBottom: 20,
+    },
+    titleContainer: {
+      backgroundColor: '#8B0000',
+      padding: 10,
+      alignItems: 'center',
+      borderTopLeftRadius: 10,
+      borderTopRightRadius: 10,
+    },
+    title: {
+      fontSize: 22,
+      fontWeight: 'bold',
+      color: '#fff',
+    },
+    infoContainer: {
+      backgroundColor: '#f4f4f4',
+      padding: 15,
+      alignItems: 'flex-start',
+      borderBottomLeftRadius: 10,
+      borderBottomRightRadius: 10,
+    },
+    infoText: {
+      fontSize: 16,
+      color: '#000',
+    },
+    link: {
+      flex: 1,
+    },
+    instructionText: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      marginLeft: 10, // Espaciado entre el ícono y el texto
+    },
+    listContent: {
+      flexGrow: 1,
+    },
+    icon: {
+      marginRight: 10, // Separar el ícono del texto
+    },
+    iconContainer: {
+      alignSelf: 'flex-end',
+      marginLeft: 'auto', // Moves it to the far right within the flex container
+    },
+  });

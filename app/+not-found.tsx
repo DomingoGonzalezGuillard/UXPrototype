@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, View } from 'react-native';
 
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { playSound } from './utils/playSound';
+import { playSound } from '../utils/playSound';
 
 export default function NotFoundScreen() {
   return (

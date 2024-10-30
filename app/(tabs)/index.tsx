@@ -18,8 +18,8 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Link } from "expo-router";
 
-import { speakText } from "../utils/TextToSpeech";
-import { playSound } from "../utils/playSound";
+import { speakText } from "../../utils/TextToSpeech";
+import { playSound } from "../../utils/playSound";
 
 interface AnimatedButtonWrapperProps {
   delay: number;
