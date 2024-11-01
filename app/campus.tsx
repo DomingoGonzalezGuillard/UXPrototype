@@ -23,7 +23,7 @@ export default function C201Screen() {
       
       <View style={styles.container}>
         <Text style={styles.title}>Mapa Campus</Text>
-        <Image source={require('../assets/images/mapa_campus.png')} style={styles.image} />
+        {/* <Image source={require('../assets/images/mapa_campus.png')} style={styles.image} /> */}
       </View>
     </ScrollView>
   );

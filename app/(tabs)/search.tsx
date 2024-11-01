@@ -7,7 +7,8 @@ import Icon from "react-native-vector-icons/FontAwesome"; // Importamos el ícon
 
 import { speakText } from "../../utils/TextToSpeech";
 import { playSound } from "../../utils/playSound";
-import { Classroom, classrooms } from "@/classrooms";
+import { classrooms } from "@/classrooms/classrooms";
+import { Classroom } from "@/classrooms/typesClassrooms";
 import { capitalize } from "@/utils/capitalize";
 
 const itemsToString = (items: Classroom[]): string => {
@@ -83,7 +84,7 @@ export default function SearchScreen() {
       </View>
 
       <FlatList
-        data={filteredItems}
+        data={filteredItems.filter((item) => item.show === true)}
         keyExtractor={(item) => `${item.build}-${item.number}`}
         numColumns={2}
         extraData={width}
@@ -91,7 +92,7 @@ export default function SearchScreen() {
         contentContainerStyle={styles.listContent}
         renderItem={({ item }) => (
           <Pressable onPress={() => playSound(require('@/assets/sounds/click.mp3'))}>
-            <Link href={{ pathname: `/classroom`, params: { id: item.id } }} style={styles.link} >
+            <Link href={{ pathname: `/display_map`, params: { id: item.id } }} style={styles.link} >
               <View style={[styles.buttonContainer, { width: getItemWidth() }]}>
                 <View style={styles.titleContainer}>
                   <Text style={styles.title}>{`${item.build[0].toUpperCase()}-${item.floor}${item.number}`}</Text>

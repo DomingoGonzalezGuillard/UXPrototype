@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Pressable, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Image, TouchableOpacity, Dimensions } from 'react-native';
 import { Link, Redirect, useGlobalSearchParams } from 'expo-router';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { playSound } from '@/utils/playSound';
-import { classrooms, Classroom } from '@/classrooms';
-import { capitalize } from '@/utils/capitalize';
+import { classrooms } from '@/classrooms/classrooms';
+import { Classroom } from "@/classrooms/typesClassrooms";
 
-export default function C101Screen() {
+const { width, height } = Dimensions.get('window'); // Obtener el ancho de la pantalla
+
+export default function displayMap() {
   const { id } = useGlobalSearchParams<{ id: string }>();
   
   const [classroom, setClassroom] = useState<Classroom | undefined>(undefined);
@@ -56,17 +58,19 @@ export default function C101Screen() {
         </Pressable>
       </View>
 
-      <Text style={styles.title}>{classroom?.build[0].toUpperCase()}-{classroom?.floor}{classroom?.number}</Text>
+      <Text style={styles.title}>{classroom?.id}</Text>
 
-      <View style={styles.resourceTypeButtons}>
-        {classroom?.resources.map((resource) => (
-          <TouchableOpacity key={resource.type} onPress={() => handleResourceTypeChange(resource.type)}>
-            <Text style={[styles.resourceType, selectedResourceType === resource.type && styles.selectedResourceType]}>
-              {capitalize(resource.type)}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </View>
+      {classroom && classroom.resources && classroom.resources.length > 1 && (
+        <View style={styles.resourceTypeButtons}>
+          {classroom.resources.map((resource) => (
+            <TouchableOpacity key={resource.type} onPress={() => handleResourceTypeChange(resource.type)}>
+              <Text style={[styles.resourceType, selectedResourceType === resource.type && styles.selectedResourceType]}>
+                {resource.type}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      )}
 
       {selectedResources.length > 0 && (
         <View style={styles.imageContainer}>
@@ -143,12 +147,16 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   imageContainer: {
+    flex: 1,
     marginTop: 20,
     alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%', // Asegura que el contenedor de la imagen ocupe todo el ancho
   },
   resourceImage: {
-    width: 470,
-    height: 610,
+    width: width * 0.9, // 90% del ancho de la pantalla
+    height: height * 0.75,
+    aspectRatio: 0.75, // Proporción de 3:4
   },
   navigationButtons: {
     flexDirection: 'row',
