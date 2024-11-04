@@ -15,7 +15,7 @@ export const ciencias: Classrooms = {
         show: true, 
         resources: [
             {
-                type: "normal", 
+                type: "Normal", 
                 resources: [
                     images.C105.normal1
                 ]

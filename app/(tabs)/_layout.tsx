@@ -5,9 +5,11 @@ import { Ionicons } from '@expo/vector-icons';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const { translations } = useLanguage();
 
   return (
     <Tabs
@@ -18,7 +20,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: translations['home'],
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'home' : 'home-outline'} color="#CE0615" />
           ),
@@ -27,7 +29,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="search"
         options={{
-          title: 'Search',
+          title: translations['search'],
           tabBarIcon: ({ focused }) => (
             <TabBarIcon name={focused ? 'search' : 'search-outline'} color="#CE0615" />
           ),

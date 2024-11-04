@@ -20,6 +20,9 @@ import { Link } from "expo-router";
 
 import { speakText } from "../../utils/TextToSpeech";
 import { playSound } from "../../utils/playSound";
+import { useLanguage } from "@/contexts/LanguageContext";
+
+
 
 interface AnimatedButtonWrapperProps {
   delay: number;
@@ -53,12 +56,8 @@ const AnimatedButtonWrapper: React.FC<AnimatedButtonWrapperProps> = ({ children,
 
 export default function HomeScreen() {
   // how to set the language options
-  const [language, setLanguage] = useState("Español");
-
-  const toggleLanguage = (selectedLanguage: string) => {
-    setLanguage(selectedLanguage); // Cambia el idioma
-  };
-
+  const { language, setLanguage } = useLanguage();
+  const { translations } = useLanguage();
 
   return (
     <ParallaxScrollView 
@@ -72,7 +71,7 @@ export default function HomeScreen() {
       }
     >
       <ThemedView style={styles.titleContainer}>
-      <ThemedText type="title">Bienvenido!</ThemedText>
+      <ThemedText type="title">{translations['welcome']}</ThemedText>
       <HelloWave />
       <a 
         onClick={() => speakText("Bienvenido. Buscar por edificio. Humanidades. Ciencias. Biblioteca. Ingenieria. Reloj. Mecano. ESE. Central. Mapa de Campus")}
@@ -87,7 +86,7 @@ export default function HomeScreen() {
           
           <Icon name="chevron-right" size={20} color="#CE0615" style={styles.icon} /> 
 
-          <Text style={styles.sectionTitle}>Buscar por edificio</Text>
+          <Text style={styles.sectionTitle}>{translations['search_building']}</Text>
           
         </View>
         <View style={styles.buttonContainer}>
@@ -239,17 +238,13 @@ export default function HomeScreen() {
       </View>
 
       <View style={styles.languageContainer}>
-        <Image
-          source={require("@/assets/images/idioma.png")}
-          style={styles.languageIcon}
-        />
         <Picker
           selectedValue={language}
           style={styles.languagePicker}
-          onValueChange={(itemValue) => toggleLanguage(itemValue)}
+          onValueChange={setLanguage}
         >
-          <Picker.Item label="Español" value="Español" />
-          <Picker.Item label="English" value="English" />
+          <Picker.Item label="Español" value="es" />
+          <Picker.Item label="English" value="en" />
         </Picker>
       </View>
 

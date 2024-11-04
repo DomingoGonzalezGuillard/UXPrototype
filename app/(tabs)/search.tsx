@@ -10,6 +10,7 @@ import { playSound } from "../../utils/playSound";
 import { classrooms } from "@/classrooms/classrooms";
 import { Classroom } from "@/classrooms/typesClassrooms";
 import { capitalize } from "@/utils/capitalize";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const itemsToString = (items: Classroom[]): string => {
   return items.filter((item) => item.show === true).map(item => `${item.id}`).join('. ');
@@ -21,6 +22,8 @@ export default function SearchScreen() {
 
   const [searchText, setSearchText] = useState(query ?? "");
   const [filteredItems, setFilteredItems] = useState<Classroom[]>(Object.values(classrooms));
+
+  const { translations } = useLanguage();
 
   useEffect(() => {
     const options = {
@@ -58,7 +61,7 @@ export default function SearchScreen() {
           <Link href="/" asChild>
             <View style={styles.backButtonContent}>
               <Icon name="chevron-left" size={20} color="#CE0615" style={styles.icon} />
-              <Text style={styles.backText}>Volver</Text>
+              <Text style={styles.backText}>{translations['back']}</Text>
             </View>
           </Link>
         </Pressable>
@@ -66,7 +69,7 @@ export default function SearchScreen() {
       
       <View style={styles.instructionContainer}>
         <Icon name="chevron-right" size={20} color="#CE0615" style={styles.icon} />
-        <Text style={styles.instructionText}>Introduce nombre de sala 🚪</Text>
+        <Text style={styles.instructionText}>{translations['name_classroom']} 🚪</Text>
         <a 
           onClick={() => speakText(`${"Introduce nombre de sala."} ${itemsToString(filteredItems)}`)}
           style={styles.iconContainer}
@@ -98,9 +101,9 @@ export default function SearchScreen() {
                   <Text style={styles.title}>{`${item.build[0].toUpperCase()}-${item.floor}${item.number}`}</Text>
                 </View>
                 <View style={styles.infoContainer}>
-                  <Text style={styles.infoText}>Edificio: {capitalize(item.build)}</Text>
-                  <Text style={styles.infoText}>Piso: {item.floor}</Text>
-                  <Text style={styles.infoText}>Sala: {item.number}</Text>
+                  <Text style={styles.infoText}>{translations['building']}: {capitalize(item.build)}</Text>
+                  <Text style={styles.infoText}>{translations['floor']}: {item.floor}</Text>
+                  <Text style={styles.infoText}>{translations['number']}: {item.number}</Text>
                 </View>
               </View>
             </Link>

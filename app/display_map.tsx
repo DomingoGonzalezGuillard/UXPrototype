@@ -6,6 +6,7 @@ import { playSound } from '@/utils/playSound';
 import { classrooms } from '@/classrooms/classrooms';
 import { Classroom } from "@/classrooms/typesClassrooms";
 import { capitalize } from '@/utils/capitalize';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const { width, height } = Dimensions.get('window'); // Obtener el ancho de la pantalla
 
@@ -15,6 +16,9 @@ export default function displayMap() {
   const [classroom, setClassroom] = useState<Classroom | undefined>(undefined);
   const [selectedResourceType, setSelectedResourceType] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+  const { language, setLanguage } = useLanguage();
+  const { translations } = useLanguage();
 
   useEffect(() => {
     if (id && id in classrooms) {
@@ -53,13 +57,14 @@ export default function displayMap() {
           <Link href="/search" asChild>
             <View style={styles.backButtonContent}>
               <Icon name="chevron-left" size={20} color="#CE0615" style={styles.icon} />
-              <Text style={styles.backText}>Volver</Text>
+              <Text style={styles.backText}>{translations['back']}</Text>
             </View>
           </Link>
         </Pressable>
       </View>
 
-      <Text style={styles.title}>{classroom?.id}</Text>
+      <Text style={styles.title}>{classroom?.title && classroom.title[language] ? classroom.title[language] : classroom?.id}</Text>
+
 
 
       {classroom && classroom.resources && classroom.resources.length > 1 && (
@@ -67,7 +72,7 @@ export default function displayMap() {
           {classroom.resources.map((resource) => (
             <TouchableOpacity key={resource.type} onPress={() => handleResourceTypeChange(resource.type)}>
               <Text style={[styles.resourceType, selectedResourceType === resource.type && styles.selectedResourceType]}>
-                {capitalize(resource.type)}
+                {translations['route']} "{capitalize(resource.type)}"
               </Text>
             </TouchableOpacity>
           ))}
@@ -88,14 +93,14 @@ export default function displayMap() {
                 style={[styles.navButton, currentIndex === 0 && styles.disabledButton]}
                 disabled={currentIndex === 0}
               >
-                <Text style={styles.navButtonText}>Anterior</Text>
+                <Text style={styles.navButtonText}>{translations['back_img']}</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={nextImage}
                 style={[styles.navButton, currentIndex === selectedResources.length - 1 && styles.disabledButton]}
                 disabled={currentIndex === selectedResources.length - 1}
               >
-                <Text style={styles.navButtonText}>Siguiente</Text>
+                <Text style={styles.navButtonText}>{translations['next_img']}</Text>
               </TouchableOpacity>
             </View>
           )}

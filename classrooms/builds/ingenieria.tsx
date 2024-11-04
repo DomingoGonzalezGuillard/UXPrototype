@@ -20,14 +20,14 @@ export const ingenieria: Classrooms = {
         show: true,
         resources: [
             { 
-                type: "normal", 
+                type: "Normal", 
                 resources: [
                     images.misc.totwo,
                     images.I204.normal1
                 ]
             }, 
             { 
-                type: "alternativa", 
+                type: "Alt.", 
                 resources: [
                     images.misc.elevator,
                     images.I204.alt1
