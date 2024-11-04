@@ -9,6 +9,7 @@ export type Classroom = {
     floor: string;         // Piso
     number: string;        // Número de la sala
     show: boolean;
+    title?: string;
     resources: ResourceType[]; // Array de tipos de recursos
 };
 

@@ -183,7 +183,7 @@ export default function HomeScreen() {
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               onPress={() => playSound(require('@/assets/sounds/mecano.mp3'))} 
               >
-                <Link href="/search?query=m" asChild>
+                <Link href="/working" asChild>
                   <View style={styles.buttonWrapper}>
                   <Icon name="dungeon" size={40} color="#CE0615" style={styles.icon} /> 
                     <Text style={styles.buttonText}>Mecano</Text>
@@ -200,7 +200,7 @@ export default function HomeScreen() {
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               onPress={() => playSound(require('@/assets/sounds/ese.mp3'))} 
               >
-                <Link href="/search?query=e" asChild>
+                <Link href="/working" asChild>
                   <View style={styles.buttonWrapper}>
                   <Icon name="school" size={40} color="#CE0615" style={styles.icon} /><Text style={styles.buttonText}>ESE</Text>
                   </View>
@@ -232,7 +232,7 @@ export default function HomeScreen() {
               style={[styles.button, { backgroundColor: "#f4f4f4", borderWidth: 1, borderColor: "#bdbebf" }]} 
               onPress={() => playSound(require('@/assets/sounds/openmap.mp3'))} 
               >
-          <Link href="/campus" asChild>
+          <Link href={{ pathname: `/display_map`, params: { id: "campus" } }} asChild>
             <View style={styles.buttonWrapper}>
             <Icon name="map" size={40} color="#CE0615" style={styles.icon} />               
             <Text style={styles.buttonText}>Mapa de Campus</Text>

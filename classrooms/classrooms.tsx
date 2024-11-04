@@ -12,8 +12,9 @@ export const classrooms: Classrooms = {
     ...ciencias,
     ...ingenieria,
     campus: { 
-        id: "Campus", 
-        build: "general", 
+        id: "campus", 
+        build: "general",
+        title: "Mapa del Campus", 
         floor: "0", 
         number: "00",
         show: false, 

@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import { playSound } from '@/utils/playSound';
 import { classrooms } from '@/classrooms/classrooms';
 import { Classroom } from "@/classrooms/typesClassrooms";
+import { capitalize } from '@/utils/capitalize';
 
 const { width, height } = Dimensions.get('window'); // Obtener el ancho de la pantalla
 
@@ -58,14 +59,15 @@ export default function displayMap() {
         </Pressable>
       </View>
 
-      <Text style={styles.title}>{classroom?.id}</Text>
+      <Text style={styles.title}>{classroom?.title || classroom?.id}</Text>
+
 
       {classroom && classroom.resources && classroom.resources.length > 1 && (
         <View style={styles.resourceTypeButtons}>
           {classroom.resources.map((resource) => (
             <TouchableOpacity key={resource.type} onPress={() => handleResourceTypeChange(resource.type)}>
               <Text style={[styles.resourceType, selectedResourceType === resource.type && styles.selectedResourceType]}>
-                {resource.type}
+                {capitalize(resource.type)}
               </Text>
             </TouchableOpacity>
           ))}
@@ -110,7 +112,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 24,
+    fontSize: width*0.075,
     marginTop: 60,
   },
   backButtonContainer: {
@@ -154,8 +156,8 @@ const styles = StyleSheet.create({
     width: '100%', // Asegura que el contenedor de la imagen ocupe todo el ancho
   },
   resourceImage: {
-    width: width * 0.9, // 90% del ancho de la pantalla
-    height: height * 0.75,
+    width: width * 0.8, // 90% del ancho de la pantalla
+    height: height * 0.6,
     aspectRatio: 0.75, // Proporción de 3:4
   },
   navigationButtons: {

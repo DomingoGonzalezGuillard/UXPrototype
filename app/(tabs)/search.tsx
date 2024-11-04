@@ -12,7 +12,7 @@ import { Classroom } from "@/classrooms/typesClassrooms";
 import { capitalize } from "@/utils/capitalize";
 
 const itemsToString = (items: Classroom[]): string => {
-  return items.map(item => `${item.id}`).join('. ');
+  return items.filter((item) => item.show === true).map(item => `${item.id}`).join('. ');
 };
 
 export default function SearchScreen() {
