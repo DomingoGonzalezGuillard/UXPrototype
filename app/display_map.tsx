@@ -59,7 +59,7 @@ export default function displayMap() {
         </Pressable>
       </View>
 
-      <Text style={styles.title}>{classroom?.title || classroom?.id}</Text>
+      <Text style={styles.title}>{classroom?.id}</Text>
 
 
       {classroom && classroom.resources && classroom.resources.length > 1 && (

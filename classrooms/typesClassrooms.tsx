@@ -9,8 +9,12 @@ export type Classroom = {
     floor: string;         // Piso
     number: string;        // Número de la sala
     show: boolean;
-    title?: string;
+    title?: Lenguage;
     resources: ResourceType[]; // Array de tipos de recursos
+};
+
+export type Lenguage = {
+    [key: string]: string; // Permite claves de idioma como 'es', 'en', etc.
 };
 
 // Tipo de classrooms que es un objeto donde la clave es el ID de la sala y el valor es un Classroom

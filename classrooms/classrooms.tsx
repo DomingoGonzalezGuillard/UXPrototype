@@ -14,7 +14,7 @@ export const classrooms: Classrooms = {
     campus: { 
         id: "campus", 
         build: "general",
-        title: "Mapa del Campus", 
+        title: {"es":"Mapa del Campus", "en":"Map Of Campus"}, 
         floor: "0", 
         number: "00",
         show: false, 

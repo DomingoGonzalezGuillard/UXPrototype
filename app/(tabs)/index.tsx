@@ -59,10 +59,6 @@ export default function HomeScreen() {
     setLanguage(selectedLanguage); // Cambia el idioma
   };
 
-  useEffect(() => {
-    
-  }, []);
-  
 
   return (
     <ParallaxScrollView 
